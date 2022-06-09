@@ -16,7 +16,6 @@ year,date,air_temp_f,water_temp_f,thermocline_depth_ft,wind_speed_mph,wind_dir,w
 2015,4/29/2015,46,42.3,,0,,calm,harilla bay,9:10,salmon,18,48,,6:30,12:20,5:50
 2015,4/30/2015,47,43,,0,,calm,harilla bay,8:25,salmon,18,39,,6:10,8:25,2:15
 2015,5/1/2015,55,44.2,,0,,calm,saunders bay,,,,,TRUE,16:30,18:15,1:45
-2015,5/2/2015,42,46,,0,,calm,harilla bay,,,,,TRUE,6:30,9:45,3:15
 2015,5/2/2015,42,44,,0,,calm,little bear bay,9:00,salmon,10,36,,6:30,9:45,3:15
 2015,5/3/2015,51,44.8,,0,ne,slight wind,north of lockes,8:50,lake trout,,75,,8:00,10:30,2:30
 2015,5/3/2015,51,44.8,,0,ne,slight wind,north of lockes,9:00,lake trout,,90,,8:00,10:30,2:30
