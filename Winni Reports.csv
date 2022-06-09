@@ -1,0 +1,456 @@
+year,date,air_temp_f,water_temp_f,thermocline_depth_ft,wind_speed_mph,wind_dir,weather,location,time,fish_type,fish_length_in,water_depth_ft,skunked,lines_in,lines_out,duration
+2015,8/27/2015,65,76.3,,8,nw,partly sunny,north of lockes,6:20,salmon,18,20,,6:20,9:00,2:40
+2015,8/27/2015,65,76.3,,8,nw,partly sunny,north of lockes,7:00,rainbow,16,20,,6:20,9:00,2:40
+2015,8/27/2015,65,76.3,,8,nw,partly sunny,north of lockes,7:15,small mouth bass,,20,,6:20,9:00,2:40
+2015,8/27/2015,65,76.3,,8,nw,partly sunny,north of lockes,8:40,salmon,10,37,,6:20,9:00,2:40
+2015,8/28/2015,65,76.3,,8,nw,partly sunny,north of diamond,7:45,rainbow,16,43,,7:15,10:30,3:15
+2015,4/26/2015,,39.4,,0,,windy,saunders bay,8:00,salmon,18,2,,8:00,11:00,3:00
+2015,4/26/2015,,39.4,,0,,windy,saunders bay,8:15,salmon,19,2,,8:00,11:00,3:00
+2015,4/26/2015,,39.4,,0,,windy,saunders bay,8:30,salmon,18,2,,8:00,11:00,3:00
+2015,4/27/2015,,40.3,,0,,windy,east of little bear bay,7:00,salmon,,21.5,,7:00,11:30,4:30
+2015,4/27/2015,,40.3,,0,,windy,east of little bear bay,8:00,salmon,,2,,7:00,11:30,4:30
+2015,4/27/2015,,40.3,,0,,windy,east of little bear bay,9:00,salmon,,2,,7:00,11:30,4:30
+2015,4/29/2015,46,43.2,,0,,calm,little bear bay,6:30,salmon,19,2,,6:30,12:20,5:50
+2015,4/29/2015,46,43.2,,0,,calm,little bear bay,7:45,salmon,,33,,6:30,12:20,5:50
+2015,4/29/2015,46,42.3,,0,,calm,harilla bay,8:50,salmon,18,38,,6:30,12:20,5:50
+2015,4/29/2015,46,42.3,,0,,calm,harilla bay,9:10,salmon,18,48,,6:30,12:20,5:50
+2015,4/30/2015,47,43,,0,,calm,harilla bay,8:25,salmon,18,39,,6:10,8:25,2:15
+2015,5/1/2015,55,44.2,,0,,calm,saunders bay,,,,,TRUE,16:30,18:15,1:45
+2015,5/2/2015,42,46,,0,,calm,harilla bay,,,,,TRUE,6:30,9:45,3:15
+2015,5/2/2015,42,44,,0,,calm,little bear bay,9:00,salmon,10,36,,6:30,9:45,3:15
+2015,5/3/2015,51,44.8,,0,ne,slight wind,north of lockes,8:50,lake trout,,75,,8:00,10:30,2:30
+2015,5/3/2015,51,44.8,,0,ne,slight wind,north of lockes,9:00,lake trout,,90,,8:00,10:30,2:30
+2015,5/14/2015,45,50,,10,nw,,north of lockes,7:45,salmon,17,28,,7:15,11:55,4:40
+2015,5/14/2015,45,50,,10,nw,,south of witches,8:45,salmon,20,38,,7:15,11:55,4:40
+2015,5/14/2015,45,50,,0,,,north of lockes,8:55,salmon,,,,7:15,11:55,4:40
+14:30,5/15/2015,69,55,,5,nw,,harilla bay,14:30,salmon,18,,,14:30,16:20,1:50
+2015,5/15/2015,69,55,,5,nw,,little bear bay,16:20,salmon,18,,,14:30,16:20,1:50
+2015,5/16/2015,53,57,,5,nw,overcast,little bear bay,8:30,salmon,10,10,,5:15,9:30,4:15
+2015,5/17/2015,58,58,,0,,,harilla bay,5:45,rainbow,15,2,,5:20,10:15,4:55
+2015,5/17/2015,58,58,,0,,,harilla bay,6:00,salmon,14,,,5:20,10:15,4:55
+2015,6/4/2015,51,57.5,,6,sw,cloudy,north of rattlesnake,,,,,TRUE,5:15,7:45,2:30
+2015,6/4/2015,51,57.5,,6,sw,cloudy,diamond,,,,,TRUE,5:15,7:45,2:30
+2015,6/6/2015,59,59,,6,se,overcast,welch,7:25,salmon,18,,,5:45,7:40,1:55
+2015,6/6/2015,59,59,,6,se,overcast,welch,7:40,salmon,15,,,5:45,7:40,1:55
+2015,6/7/2015,40,59,,0,,sunny,wolfboro bay,7:25,lake trout,18,15,,6:30,10:30,4:00
+2015,6/7/2015,40,59,,0,,sunny,wolfboro bay,7:40,lake trout,18,20,,6:30,10:30,4:00
+2015,6/7/2015,40,59,,0,,sunny,wolfboro bay,8:30,rainbow,16,15,,6:30,10:30,4:00
+2015,6/12/2015,66,63.6,,8,nw,overcast,north of diamond,,,,,TRUE,7:15,9:10,1:55
+2015,6/13/2015,65,65,,10,nw,sunny,long island,8:45,rainbow,19,13,,7:15,9:45,2:30
+2015,6/14/2015,63,66,,6,sw,overcast,east of witches,7:50,salmon,16,,,7:30,7:50,0:20
+2015,6/26/2015,59,68,,10,sw,overcast,east of witches,,,,,TRUE,6:45,8:30,1:45
+2015,6/27/2015,54,68.8,,3,s,sunny,north of lockes,8:30,rainbow,19,20,,7:15,10:00,2:45
+2015,7/3/2015,58,68.3,,8,nw,sunny,east of welch,,,,,TRUE,7:55,10:20,2:25
+2015,7/5/2015,64,68.2,,12,sw,sunny,east of welch,7:40,salmon,20,100,,7:00,8:30,1:30
+2015,7/5/2015,64,68.2,,12,sw,sunny,east of welch,8:00,salmon,18,17,,7:00,8:30,1:30
+2015,7/5/2015,64,68.2,,12,sw,sunny,east of welch,8:30,rainbow,16,25,,7:00,8:30,1:30
+2015,7/7/2015,69,70.4,,0,,overcast,north of diamond,,,,,TRUE,7:30,9:15,1:45
+2015,7/11/2015,68,72,,5,nw,sunny,south of sandy,8:30,salmon,10,25,,6:30,9:20,2:50
+2015,7/11/2015,68,72,,5,nw,sunny,south of sandy,8:40,salmon,10,20,,6:30,9:20,2:50
+2015,7/11/2015,68,72,,5,nw,sunny,south of sandy,9:00,lake trout,18,20,,6:30,9:20,2:50
+2015,7/12/2015,69,72,,10,nw,sunny,south of sandy,9:30,salmon,10,25,,8:30,10:20,1:50
+2015,7/12/2015,69,72,,10,nw,sunny,south of sandy,10:20,lake trout,10,25,,8:30,10:20,1:50
+2015,7/13/2015,69,74.3,,3,nw,sunny,welch,,,,,TRUE,7:00,9:00,2:00
+2015,7/16/2015,52,73.5,,3,s,,east of lockes,7:12,salmon,18,17,,7:00,9:50,2:50
+2015,7/16/2015,52,73.5,,3,s,,east of lockes,8:20,salmon,16,19,,7:00,9:50,2:50
+2015,7/17/2015,53,73.3,,5,nw,,south of sandy,,,,,TRUE,6:20,7:45,1:25
+2015,7/18/2015,62,73.4,,15,se,raining,south of sandy,6:35,salmon,17,88,,6:15,10:30,4:15
+2015,7/18/2015,62,73.4,,15,se,raining,south of sandy,6:55,lake trout,20,135,,6:15,10:30,4:15
+2015,7/18/2015,62,73.4,,15,se,raining,diamond,7:55,salmon,17,17,,6:15,10:30,4:15
+2015,7/18/2015,62,73.4,,15,se,raining,diamond,8:10,rainbow,16,17,,6:15,10:30,4:15
+2015,7/18/2015,62,73.4,,15,se,raining,diamond,7:55,salmon,17,17,,6:15,10:30,4:15
+2015,7/18/2015,62,73.4,,15,se,raining,diamond,8:25,salmon,17,17,,6:15,10:30,4:15
+2015,7/18/2015,62,73.4,,15,se,raining,diamond,9:40,rainbow,16,17,,6:15,10:30,4:15
+2015,7/19/2015,68,73.8,,3,nw,hazy,west of 6 mile,,,,,TRUE,7:00,8:30,1:30
+2015,7/21/2015,69,75.3,,5,sw,,east of lockes,7:10,salmon,19,25,,6:30,10:15,3:45
+2015,7/21/2015,69,75.3,,5,sw,,east of lockes,7:20,salmon,19,25,,6:30,10:15,3:45
+2015,7/21/2015,69,75.3,,5,sw,,east of lockes,7:40,salmon,19,25,,6:30,10:15,3:45
+2015,7/21/2015,69,75.3,,5,sw,,south of welch,9:20,salmon,19,35,,6:30,10:15,3:45
+2015,7/21/2015,69,75.3,,5,sw,,south of welch,9:40,salmon,19,35,,6:30,10:15,3:45
+2015,7/21/2015,69,75.3,,5,sw,,south of welch,9:45,salmon,19,35,,6:30,10:15,3:45
+2015,7/22/2015,61,75,,15,nw,,south of welch,6:55,salmon,16,,,6:30,10:30,4:00
+2015,7/22/2015,61,75,,15,nw,,south of welch,7:15,rainbow,15,,,6:30,10:30,4:00
+2015,7/22/2015,61,75,,10,nw,,east of witches,9:30,salmon,16,,,6:30,10:30,4:00
+2015,7/22/2015,61,75,,10,nw,,east of witches,9:45,salmon,17,,,6:30,10:30,4:00
+2015,7/30/2015,72,76.7,,5,w,sunny,south of welch,,,,,TRUE,7:30,9:10,1:40
+2015,8/2/2015,56,75,,5,sw,sunny,west of witches,6:10,salmon,18,15,,6:00,8:00,2:00
+2015,8/2/2015,56,75,,5,sw,sunny,west of witches,6:25,salmon,18,15,,6:00,8:00,2:00
+2015,8/2/2015,56,75,,5,sw,sunny,west of witches,6:35,rainbow,15,15,,6:00,8:00,2:00
+2015,8/2/2015,56,75,,5,sw,sunny,west of witches,6:50,rainbow,13,110,,6:00,8:00,2:00
+2015,8/2/2015,56,75,,5,sw,sunny,west of witches,7:00,salmon,10,27,,6:00,8:00,2:00
+2015,8/2/2015,56,75,,5,sw,sunny,west of witches,7:15,salmon,15,27,,6:00,8:00,2:00
+2015,8/2/2015,56,75,,5,sw,sunny,west of witches,7:20,rainbow,15,27,,6:00,8:00,2:00
+2015,8/2/2015,56,75,,5,sw,sunny,west of witches,7:30,salmon,15,27,,6:00,8:00,2:00
+2015,8/2/2015,56,75,,5,sw,sunny,west of witches,8:00,rainbow,17,150,,6:00,8:00,2:00
+2015,8/6/2015,56,75,,12,nw,sunny,west of welch,7:10,salmon,20,20,,6:30,9:00,2:30
+2015,8/6/2015,56,75,,12,nw,sunny,west of welch,8:05,salmon,18,27,,6:30,9:00,2:30
+2015,8/7/2015,54,74.5,,7,sw,sunny,diamond,6:25,rainbow,16,27,,6:10,9:45,3:35
+2015,8/7/2015,54,74.5,,7,sw,sunny,diamond,6:55,salmon,17,20,,6:10,9:45,3:35
+2015,8/7/2015,54,74.5,,7,sw,sunny,diamond,7:50,salmon,23,98,,6:10,9:45,3:35
+2015,8/7/2015,54,74.5,,7,sw,sunny,diamond,9:30,salmon,10,27,,6:10,9:45,3:35
+2015,8/8/2015,55,74.8,,5,nw,sunny,north of sandy,6:20,salmon,18,98,,5:45,10:10,4:25
+2015,8/8/2015,55,74.8,,5,nw,sunny,north of diamond,6:35,salmon,17,20,,5:45,10:10,4:25
+2015,8/8/2015,55,74.8,,5,nw,sunny,north of sandy,9:00,salmon,19,45,,5:45,10:10,4:25
+2015,8/8/2015,55,74.8,,5,nw,sunny,north of sandy,9:50,lake trout,18,175,,5:45,10:10,4:25
+2015,8/9/2015,59,74.7,,6,sw,sunny,south of diamond,,,,,TRUE,6:15,8:00,1:45
+2015,8/14/2015,60,74.3,,8,nw,sunny,west of lockes,6:15,salmon,21,29,,6:00,10:10,4:10
+2015,8/14/2015,60,74.3,,8,nw,sunny,west of lockes,6:20,salmon,21,90,,6:00,10:10,4:10
+2015,8/14/2015,60,74.3,,8,nw,sunny,west of lockes,7:20,salmon,16,29,,6:00,10:10,4:10
+2015,8/14/2015,60,74.3,,8,nw,sunny,west of welch,8:40,salmon,17,37,,6:00,10:10,4:10
+2015,8/14/2015,60,74.3,,8,nw,sunny,west of lockes,9:00,salmon,22,20,,6:00,10:10,4:10
+2015,8/15/2015,60,74.4,,8,nw,sunny,north of lockes,6:20,salmon,17,15,,6:15,7:00,0:45
+2015,8/15/2015,60,74.4,,8,nw,sunny,north of lockes,6:40,rainbow,16,39,,6:15,7:00,0:45
+2015,8/15/2015,60,74.4,,8,nw,sunny,north of lockes,7:00,rainbow,20,15,,6:15,7:00,0:45
+2015,8/18/2015,66,76.5,,6,sw,sunny,south of welch,6:30,salmon,17,31,,6:15,9:00,2:45
+2015,8/18/2015,66,76.5,,6,sw,sunny,south of welch,6:35,salmon,18,20,,6:15,9:00,2:45
+2015,8/18/2015,66,76.5,,6,sw,sunny,south of welch,7:25,salmon,20,20,,6:15,9:00,2:45
+2015,8/18/2015,66,76.5,,6,sw,sunny,south of welch,8:10,lake trout,15,15,,6:15,9:00,2:45
+2015,8/18/2015,66,76.5,,6,sw,sunny,south of welch,8:45,rainbow,20,20,,6:15,9:00,2:45
+2015,8/19/2015,73,78.2,,7,s,sunny,north of welch,7:15,salmon,18,20,,7:15,8:30,1:15
+2015,8/20/2015,75,77.9,,6,se,sunny,south of welch,,,,,TRUE,8:00,9:30,1:30
+2015,8/22/2015,63,76.4,,4,sw,overcast,east of lockes,6:20,salmon,17,15,,6:15,9:25,3:10
+2015,8/22/2015,63,76.4,,4,sw,overcast,east of lockes,6:50,salmon,16,15,,6:15,9:25,3:10
+2015,8/22/2015,63,76.4,,4,sw,overcast,east of lockes,7:00,rainbow,15,15,,6:15,9:25,3:10
+2015,8/22/2015,63,76.4,,4,sw,overcast,east of lockes,9:00,rainbow,15,20,,6:15,9:25,3:10
+2015,8/23/2015,61,76.7,,6,s,overcast,north of welch,6:10,salmon,17,31,,6:00,10:00,4:00
+2015,8/23/2015,61,76.7,,6,s,overcast,north of welch,6:20,salmon,10,27,,6:00,10:00,4:00
+2015,8/23/2015,61,76.7,,6,s,overcast,north of lockes,7:10,salmon,17,31,,6:00,10:00,4:00
+2015,8/23/2015,61,76.7,,6,s,overcast,north of lockes,7:20,salmon,17,31,,6:00,10:00,4:00
+2015,8/23/2015,61,76.7,,6,s,overcast,north of lockes,7:30,salmon,18,20,,6:00,10:00,4:00
+2015,8/23/2015,61,76.7,,6,s,overcast,north of lockes,8:10,lake trout,16,43,,6:00,10:00,4:00
+2015,8/23/2015,61,76.7,,6,s,overcast,north of diamond,9:00,salmon,17,20,,6:00,10:00,4:00
+2015,8/23/2015,61,76.7,,6,s,overcast,north of diamond,9:10,salmon,19,20,,6:00,10:00,4:00
+2015,8/23/2015,61,76.7,,6,s,overcast,north of diamond,9:30,salmon,17,20,,6:00,10:00,4:00
+2015,8/23/2015,61,76.7,,6,s,overcast,north of diamond,9:45,salmon,10,31,,6:00,10:00,4:00
+2015,8/23/2015,61,76.7,,6,s,overcast,north of welch,9:55,salmon,10,25,,6:00,10:00,4:00
+2015,8/25/2015,71,76.7,,4,se,overcast,south of sandy,6:40,rainbow,15,15,,6:40,8:45,2:05
+2015,8/25/2015,71,76.7,,12,se,overcast,south of sandy,6:45,salmon,18,15,,6:40,8:45,2:05
+2015,8/25/2015,71,76.7,,12,se,overcast,south of sandy,7:05,salmon,19,15,,6:40,8:45,2:05
+2015,8/25/2015,71,76.7,,12,se,overcast,south of sandy,7:10,salmon,19,15,,6:40,8:45,2:05
+2015,8/25/2015,71,76.7,,12,se,overcast,south of sandy,7:25,salmon,19,15,,6:40,8:45,2:05
+2015,8/25/2015,71,76.7,,12,se,overcast,south of sandy,7:40,salmon,18,15,,6:40,8:45,2:05
+2015,8/25/2015,71,76.7,,12,se,overcast,south of sandy,7:45,salmon,19,15,,6:40,8:45,2:05
+2015,8/25/2015,71,76.7,,12,se,overcast,south of sandy,8:45,salmon,17,15,,6:40,8:45,2:05
+2015,8/27/2015,65,76.2,,8,nw,sunny,north of lockes,6:20,salmon,18,20,,6:20,9:30,3:10
+2015,8/27/2015,65,76.2,,8,nw,sunny,north of lockes,6:50,rainbow,16,20,,6:20,9:30,3:10
+2015,8/27/2015,65,76.2,,8,nw,sunny,north of lockes,7:30,salmon,10,37,,6:20,9:30,3:10
+2015,8/28/2015,63,75.2,,5,nw,sunny,north of diamond,7:45,rainbow,16,43,,7:15,10:30,3:15
+2015,8/28/2015,63,75.2,,5,nw,sunny,north of diamond,9:05,salmon,21,20,,7:15,10:30,3:15
+2015,8/28/2015,63,75.2,,5,nw,sunny,north of diamond,9:20,salmon,17,20,,7:15,10:30,3:15
+2015,8/28/2015,63,75.2,,5,nw,sunny,north of diamond,9:30,salmon,18,43,,7:15,10:30,3:15
+2015,8/28/2015,63,75.2,,5,nw,sunny,north of diamond,9:45,salmon,17,20,,7:15,10:30,3:15
+2015,8/28/2015,63,75.2,,5,nw,sunny,north of diamond,10:00,salmon,10,20,,7:15,10:30,3:15
+2015,8/28/2015,63,75.2,,5,nw,sunny,north of diamond,10:15,salmon,10,27,,7:15,10:30,3:15
+2015,8/29/2015,62,74.8,,6,sw,hazy,south of welch,9:00,lake trout,19,25,,7:30,10:45,3:15
+2015,8/29/2015,62,74.8,,6,sw,hazy,south of welch,9:50,rainbow,16,20,,7:30,10:45,3:15
+2015,8/29/2015,62,74.8,,6,sw,hazy,south of welch,10:00,salmon,20,25,,7:30,10:45,3:15
+2015,8/29/2015,62,74.8,,6,sw,hazy,south of welch,10:15,rainbow,16,150,,7:30,10:45,3:15
+2015,8/30/2015,63,75.3,,4,w,cloudy,north of diamond,8:50,salmon,17,20,,7:30,10:25,2:55
+2015,8/30/2015,63,75.3,,4,w,cloudy,north of diamond,9:00,salmon,10,27,,7:30,10:25,2:55
+2015,8/30/2015,63,75.3,,4,w,cloudy,north of diamond,9:45,salmon,10,33,,7:30,10:25,2:55
+2015,9/1/2015,68,74.9,,4,w,sunny,north of welch,7:10,rainbow,14,20,,7:00,10:00,3:00
+2015,9/1/2015,68,74.9,,4,w,sunny,north of welch,7:25,salmon,19,20,,7:00,10:00,3:00
+2015,9/2/2015,69,75.6,,7,nw,sunny,weirs marina,7:20,salmon,21,20,,7:15,10:00,2:45
+2015,9/2/2015,69,75.6,,7,nw,sunny,weirs marina,7:35,salmon,17,29,,7:15,10:00,2:45
+2015,9/3/2015,69,75.5,,4,nw,hazy,north of diamond,6:30,white perch,,,,6:30,9:30,3:00
+2015,9/3/2015,69,75.5,,4,nw,hazy,north of diamond,6:45,lake trout,17,29,,6:30,9:30,3:00
+2015,9/3/2015,69,75.5,,4,nw,hazy,north of diamond,6:55,salmon,18,20,,6:30,9:30,3:00
+2015,9/3/2015,69,75.5,,4,nw,hazy,north of diamond,7:10,salmon,21,20,,6:30,9:30,3:00
+2015,9/3/2015,69,75.5,,4,nw,hazy,north of diamond,8:20,rainbow,15,20,,6:30,9:30,3:00
+2015,9/3/2015,69,75.5,,4,nw,hazy,north of diamond,9:15,salmon,20,33,,6:30,9:30,3:00
+2015,9/5/2015,53,75,,5,sw,sunny,north of lockes,8:15,salmon,17,35,,7:00,11:00,4:00
+2015,9/5/2015,53,75,,5,sw,sunny,north of diamond,9:35,salmon,23,20,,7:00,11:00,4:00
+2015,9/5/2015,53,75,,5,sw,sunny,north of diamond,10:10,rainbow,17,20,,7:00,11:00,4:00
+2015,9/6/2015,65,75.7,,8,w,sunny,north of diamond,7:00,salmon,17,20,,7:00,9:15,2:15
+2015,9/6/2015,65,75.7,,8,w,sunny,north of diamond,8:40,salmon,22,20,,7:00,9:15,2:15
+2015,9/6/2015,65,75.7,,8,w,sunny,north of diamond,9:10,salmon,17,20,,7:00,9:15,2:15
+2015,9/7/2015,63,75.4,,8,w,sunny,north of diamond,8:30,salmon,22,20,,8:10,10:00,1:50
+2015,9/8/2015,68,76,,12,nw,sunny,north of diamond,8:20,salmon,15,25,,7:10,8:20,1:10
+2015,9/12/2015,59,75.3,,7,nw,sunny,north of diamond,7:05,rainbow,10,20,,6:30,10:40,4:10
+2015,9/12/2015,59,75.3,,7,nw,sunny,east of rattlesnake,8:55,salmon,18,20,,6:30,10:40,4:10
+2015,9/12/2015,59,75.3,,7,nw,sunny,east of rattlesnake,9:15,salmon,18,20,,6:30,10:40,4:10
+2015,9/12/2015,59,75.3,,7,nw,sunny,east of rattlesnake,9:40,salmon,10,27,,6:30,10:40,4:10
+2015,9/12/2015,59,75.3,,7,nw,sunny,north of diamond,10:30,lake trout,18,20,,6:30,10:40,4:10
+2015,9/16/2015,57,72.2,,5,w,sunny,south of welch,,,,,TRUE,7:00,9:45,2:45
+2015,9/17/2015,59,72.3,,7,w,sunny,north of diamond,,,,,TRUE,6:45,9:00,2:15
+2015,9/18/2015,59,73.7,,0,,sunny,alton bay,8:35,salmon,17,25,,7:10,10:00,2:50
+2015,9/18/2015,59,73.7,,0,,sunny,alton bay,9:20,rainbow,16,25,,7:10,10:00,2:50
+2015,9/19/2015,57,73.5,,3,sw,sunny,alton bay,8:35,salmon,20,35,,7:10,10:15,3:05
+2015,9/19/2015,57,73.5,,3,sw,sunny,alton bay,8:45,salmon,18,29,,7:10,10:15,3:05
+2015,9/22/2015,50,71.1,,4,ne,cloudy,north of welch,,,,,TRUE,7:30,9:25,1:55
+2015,9/23/2015,49,70.9,,10,nw,sunny,alton bay,,,,,TRUE,7:45,10:30,2:45
+2016,4/18/2016,60,48,,7,se,sunny,harilla bay,14:00,salmon,18,2,,13:00,16:00,3:00
+2016,4/18/2016,60,48,,7,se,sunny,harilla bay,14:02,salmon,17,2,,13:00,16:00,3:00
+2016,4/18/2016,60,48,,7,se,sunny,harilla bay,14:30,salmon,17,2,,13:00,16:00,3:00
+2016,4/21/2016,66,50,,6,sw,sunny,harilla bay,14:55,salmon,22,2,,14:15,15:45,1:30
+2016,4/21/2016,66,50,,6,sw,sunny,harilla bay,15:30,salmon,23,2,,14:15,15:45,1:30
+2016,5/28/2016,68,60.6,,0,,sunny,east of welch,8:04,rainbow,17.5,15,,7:45,9:30,1:45
+2016,5/29/2016,65,62.9,,12,se,overcast,north of lockes,,,,,TRUE,7:30,9:00,1:30
+2016,6/4/2016,65,64.9,,5,w,sunny,north of welch,8:03,rainbow,17,15,,7:45,10:15,2:30
+2016,6/4/2016,65,64.9,,5,w,sunny,north of welch,8:25,salmon,19,18,,7:45,10:15,2:30
+2016,6/5/2016,64,67.7,,12,ne,overcast,north of timber,,,,,TRUE,8:00,9:30,1:30
+2016,6/11/2016,64,57,,6,sw,overcast,north of welch,12:45,salmon,17,2,,12:30,16:00,3:30
+2016,6/12/2016,60,59,,15,sw,sunny,east of governors,9:00,lake trout,17,37,,7:30,10:30,3:00
+2016,6/12/2016,60,59,,15,sw,sunny,east of governors,9:30,lake trout,19,37,,7:30,10:30,3:00
+2016,6/18/2016,60,65,,0,,sunny,north of welch,10:30,salmon,10,41,,8:15,11:00,2:45
+2016,6/19/2016,63,63,,5,w,sunny,north of diamond,10:00,salmon,10,27,,8:15,10:30,2:15
+2016,6/24/2016,60,67,,5,w,sunny,north of diamond,9:50,salmon,10,49,,7:30,10:15,2:45
+2016,6/25/2016,68,68,,4,s,sunny,north of diamond,,,,,TRUE,7:30,9:45,2:15
+2016,6/29/2016,71,70.7,,4,ne,overcast,north of diamond,,,,,TRUE,8:00,10:15,2:15
+2016,7/12/2016,62,71.8,,8,sw,sunny,east of welch,7:45,white perch,10,25,,7:45,10:45,3:00
+2016,7/12/2016,62,71.8,,8,sw,sunny,east of welch,7:55,salmon,10,31,,7:45,10:45,3:00
+2016,7/12/2016,62,71.8,,8,sw,sunny,east of welch,8:35,smallmouth,10,25,,7:45,10:45,3:00
+2016,7/13/2016,71,72.5,,3,w,sunny,north of lockes,8:10,rainbow,10,29,,7:45,10:30,2:45
+2016,7/15/2016,72,73.4,,8,sw,sunny,north of diamond,,,,,TRUE,8:00,10:00,2:00
+7:40,8/3/2016,60,75.6,,4,sw,sunny,north of lockes,,,,,TRUE,7:40,10:15,2:35
+2016,8/8/2016,60,75.3,,8,w,sunny,north of lockes,7:50,salmon,18,20,,7:00,10:10,3:10
+2016,8/8/2016,60,75.3,,8,w,sunny,north of lockes,9:30,salmon,19,22,,7:00,10:10,3:10
+2016,8/10/2016,66,76.2,,4,nw,overcast,east of welch,7:50,rainbow,17,31,,7:30,10:15,2:45
+2016,8/10/2016,66,76.2,,4,nw,overcast,east of welch,9:20,rainbow,13,31,,7:30,10:15,2:45
+2016,8/14/2016,85,76.7,,8,w,cloudy,north of diamond,11:45,salmon,21,31,,11:30,12:30,1:00
+2016,8/16/2016,62,75.9,,6,nw,cloudy,north of diamond,8:00,salmon,17,23,,7:45,10:00,2:15
+2016,8/16/2016,62,75.9,,6,nw,cloudy,north of diamond,8:15,lake trout,21,30,,7:45,10:00,2:15
+2016,8/16/2016,62,75.9,,6,nw,cloudy,north of diamond,8:35,salmon,10,31,,7:45,10:00,2:15
+2016,8/18/2016,62,74.6,,7,sw,overcast,north of welch,8:15,salmon,18,23,,7:30,9:15,1:45
+2016,8/20/2016,65,75.6,,10,se,sunny,north of welch,9:25,salmon,10,37,,8:00,10:15,2:15
+2016,8/21/2016,65,75.1,,0,,cloudy,north of diamond,7:45,salmon,10,35,,7:30,10:30,3:00
+2016,8/21/2016,65,75.1,,0,,cloudy,north of diamond,8:05,salmon,22,23,,7:30,10:30,3:00
+2016,8/21/2016,65,75.1,,0,,cloudy,north of diamond,8:25,salmon,17,35,,7:30,10:30,3:00
+2016,8/21/2016,65,75.1,,0,,cloudy,north of diamond,8:35,rainbow,17,35,,7:30,10:30,3:00
+2016,8/21/2016,65,75.1,,0,,cloudy,north of diamond,9:00,smallmouth,17,35,,7:30,10:30,3:00
+2016,8/23/2016,47,73.1,,6,sw,sunny,south of welch,7:25,smallmouth,10,35,,7:10,9:00,1:50
+2016,8/23/2016,47,73.1,,6,sw,sunny,south of welch,7:55,white perch,10,35,,7:10,9:00,1:50
+2016,8/23/2016,47,73.1,,6,sw,sunny,south of welch,8:25,horned pout,10,35,,7:10,9:00,1:50
+2016,8/24/2016,59,73.5,,5,sw,sunny,north of diamond,6:50,salmon,10,35,,6:35,9:00,2:25
+2016,8/27/2016,63,74.6,,6,w,sunny,south of welch,8:00,smallmouth,10,35,,7:30,10:00,2:30
+2017,4/22/2017,37,45.9,,0,,cloudy,harilla bay,10:55,salmon,22,2,,10:00,12:00,2:00
+2017,4/23/2017,45,44.9,,3,w,sunny,harilla bay,8:45,salmon,20,2,,7:45,11:00,3:15
+2017,4/27/2017,53,48,,0,,cloudy,harilla bay,9:35,salmon,20,2,,8:00,10:45,2:45
+2017,5/6/2017,48,45.8,,5,e,rainy,saunders bay,8:45,salmon,16,,,8:15,11:30,3:15
+2017,5/6/2017,48,45.8,,5,e,rainy,saunders bay,9:20,salmon,17,,,8:15,11:30,3:15
+2017,5/6/2017,48,45.8,,5,e,rainy,harilla bay,10:10,rainbow,17,,,8:15,11:30,3:15
+2017,5/7/2017,53,48.9,,10,s,cloudy,harilla bay,,,,,TRUE,8:00,10:00,2:00
+2017,5/27/2017,54,55.5,,5,nw,cloudy,south of witches,8:10,salmon,17,15,,7:45,10:30,2:45
+2017,5/27/2017,54,55.5,,5,nw,cloudy,south of witches,8:40,salmon,16,15,,7:45,10:30,2:45
+2017,5/27/2017,54,55.5,,5,nw,cloudy,south of witches,10:00,salmon,16,17,,7:45,10:30,2:45
+2017,5/28/2017,54,56.9,,7,nw,cloudy,south of governors,9:30,lake trout,21,,,7:30,11:00,3:30
+2017,5/28/2017,54,56.9,,7,nw,cloudy,north of lockes,10:30,lake trout,17,,,7:30,11:00,3:30
+2017,6/14/2017,66,66,,12,nw,sunny,harilla bay,10:10,rainbow,16,,,8:00,10:55,2:55
+2017,6/14/2017,73,66,,8,n,sunny,north of welch,,,,,TRUE,18:30,19:30,1:00
+2017,6/21/2017,64,67,,10,sw,cloudy,east of welch,,,,,TRUE,7:45,9:45,2:00
+2017,6/22/2017,67,67,,10,nw,sunny,north of diamond,,,,,TRUE,7:05,8:11,1:06
+2017,7/2/2017,70,71.5,,12,sw,sunny,north of diamond,8:25,rainbow,18,37,,7:45,10:00,2:15
+2017,7/2/2017,70,71.5,,12,sw,sunny,north of diamond,9:12,salmon,22,31,,7:45,10:00,2:15
+2017,7/2/2017,70,71.5,,12,sw,sunny,north of diamond,10:00,salmon,16,33,,7:45,10:00,2:15
+2017,7/3/2017,69,71,,15,sw,sunny,north of lockes,,,,,TRUE,7:30,9:00,1:30
+2017,7/6/2017,68,72.5,,8,nw,cloudy,north of welch,,,,,TRUE,7:30,10:00,2:30
+2017,7/7/2017,64,72,,7,nw,cloudy,north of welch,8:25,salmon,15,25,,7:30,10:30,3:00
+2017,7/15/2017,70,72.1,,4,sw,overcast,north of diamond,8:20,lake trout,17,27,,7:45,10:45,3:00
+2017,7/15/2017,70,72.1,,4,sw,overcast,north of diamond,9:35,lake trout,19,35,,7:45,10:45,3:00
+2017,7/15/2017,70,72.1,,4,sw,overcast,north of diamond,9:50,lake trout,16,35,,7:45,10:45,3:00
+2017,7/15/2017,70,72.1,,4,sw,overcast,north of diamond,9:50,salmon,17,25,,7:45,10:45,3:00
+2017,7/15/2017,70,72.1,,4,sw,overcast,north of diamond,10:00,salmon,19,25,,7:45,10:45,3:00
+2017,7/15/2017,70,72.1,,4,sw,overcast,north of diamond,10:45,white perch,10,25,,7:45,10:45,3:00
+2017,7/16/2017,67,72.3,,5,nw,sunny,north of diamond,8:20,salmon,17,25,,7:45,9:50,2:05
+2017,7/16/2017,67,72.3,,5,nw,sunny,north of diamond,8:40,salmon,18,29,,7:45,9:50,2:05
+2017,7/17/2017,68,74.8,,0,,hazy,north of welch,6:50,lake trout,16,31,,6:45,7:50,1:05
+2017,7/17/2017,68,74.8,,0,,hazy,north of welch,7:05,lake trout,16,31,,6:45,7:50,1:05
+2017,7/17/2017,68,74.8,,0,,hazy,north of welch,7:50,salmon,17,31,,6:45,7:50,1:05
+2017,7/21/2017,68,76.4,,12,w,sunny,north of birch,8:45,salmon,10,23,,6:30,10:30,4:00
+2017,7/21/2017,68,76.4,,12,w,sunny,north of birch,9:00,rainbow,15,23,,6:30,10:30,4:00
+2017,7/22/2017,72,76.4,,10,sw,sunny,south of welch,,,,,TRUE,7:15,9:00,1:45
+2017,7/23/2017,68,76.1,,16,ne,sunny,west of timber,9:10,lake trout,22,25,,7:15,9:10,1:55
+2017,7/26/2017,60,73.1,,5,sw,sunny,north of welch,5:55,salmon,17,15,,5:45,9:30,3:45
+2017,7/26/2017,60,73.1,,5,sw,sunny,north of welch,6:10,salmon,22,15,,5:45,9:30,3:45
+2017,7/26/2017,60,73.1,,5,sw,sunny,north of welch,6:25,salmon,18,21,,5:45,9:30,3:45
+2017,7/26/2017,60,73.1,,5,sw,sunny,north of welch,7:20,salmon,18,18,,5:45,9:30,3:45
+2017,7/26/2017,60,73.1,,5,sw,sunny,north of welch,8:30,lake trout,16,29,,5:45,9:30,3:45
+2017,8/1/2017,68,74.3,,5,w,sunny,north of welch,,,,,TRUE,7:30,9:45,2:15
+2017,8/3/2017,62,75.5,,6,nw,sunny,north of lockes,8:30,salmon,17,25,,8:00,10:00,2:00
+2017,8/3/2017,62,75.5,,6,nw,sunny,north of lockes,8:35,salmon,17,20,,8:00,10:00,2:00
+2017,8/5/2017,60,74.1,,6,nw,sunny,north of varney,9:00,salmon,17,25,,7:30,9:30,2:00
+2017,8/9/2017,58,72.6,,6,nw,sunny,north of diamond,7:50,salmon,17,,,7:30,10:30,3:00
+2017,8/9/2017,58,72.6,,6,nw,sunny,north of varney,9:30,salmon,18,25,,7:30,10:30,3:00
+2017,8/14/2017,64,73.4,,7,nw,sunny,north of welch,9:45,rainbow,20,38,,7:25,10:00,2:35
+2017,8/21/2017,62,72.3,,5,nw,sunny,carr point,7:11,salmon,16,25,,7:00,10:00,3:00
+2017,8/21/2017,62,72.3,,5,nw,sunny,carr point,8:50,salmon,17,31,,7:00,10:00,3:00
+2017,8/22/2017,59,73,,2,w,sunny,north of welch,7:40,rainbow,15,23,,6:55,9:15,2:20
+2017,8/22/2017,59,73,,2,w,sunny,north of welch,8:20,salmon,18,31,,6:55,9:15,2:20
+2017,8/24/2017,59,72.7,,6,sw,sunny,north of welch,,,,,TRUE,7:30,9:45,2:15
+2017,8/24/2017,59,72.7,,6,sw,sunny,varney point,,,,,TRUE,7:30,9:45,2:15
+2017,8/25/2017,58,72.5,,10,w,hazy,north of diamond,8:50,salmon,18,20,,7:15,9:45,2:30
+2017,8/25/2017,58,72.5,,10,w,hazy,north of diamond,9:15,salmon,18,25,,7:15,9:45,2:30
+2017,8/26/2017,49,71.5,,10,nw,sunny,east of welch,6:25,salmon,15,20,,6:10,10:45,4:35
+2017,8/26/2017,49,71.5,,10,nw,sunny,east of welch,8:00,salmon,20,20,,6:10,10:45,4:35
+2017,8/26/2017,49,71.5,,10,nw,sunny,east of welch,9:05,salmon,18,25,,6:10,10:45,4:35
+2017,8/26/2017,49,71.5,,10,nw,sunny,east of welch,10:15,rainbow,15,25,,6:10,10:45,4:35
+2017,8/27/2017,50,71.5,,5,sw,sunny,north of welch,,,,,TRUE,7:45,10:00,2:15
+2017,9/2/2017,52,66.8,,10,nw,sunny,north of welch,8:55,salmon,18,20,,8:00,10:45,2:45
+2017,9/2/2017,52,66.8,,10,nw,sunny,north of welch,9:10,salmon,16,23,,8:00,10:45,2:45
+2017,9/3/2017,54,67,,10,e,sunny,north of welch,8:40,rainbow,18,23,,7:45,10:30,2:45
+2017,9/3/2017,54,67,,10,e,sunny,north of welch,8:50,salmon,18,20,,7:45,10:30,2:45
+2017,9/3/2017,54,67,,10,e,sunny,north of welch,9:10,salmon,17,23,,7:45,10:30,2:45
+2017,9/4/2017,55,66.2,,12,sw,cloudy,east of welch,8:45,salmon,18,10,,7:00,10:15,3:15
+2017,9/15/2017,63,68.3,,5,nw,fog,east of lockes,,,,,TRUE,7:00,10:00,3:00
+2017,9/16/2017,64,69.6,,0,,sunny,north of diamond,7:40,salmon ,18,20,,7:15,10:15,3:00
+2018,4/24/2018,65,41.5,,10,sw,sunny,saunders bay,16:45,salmon ,18,2,,16:30,17:45,1:15
+2018,4/25/2018,48,41.9,,5,ne,rainy,saunders bay,12:55,smallmouth,17,2,,11:45,13:10,1:25
+2018,4/27/2018,51,45.4,,0,,overcast,harilla bay,,,,,TRUE,13:00,15:00,2:00
+2018,4/28/2018,46,42.2,,0,,fog,saunders bay,10:00,salmon,23,2,,8:00,11:30,3:30
+2018,5/2/2018,54,45.2,,7,nw,sunny,saunders bay,15:50,salmon,17,2,,15:30,16:45,1:15
+2018,5/3/2018,63,46,,0,,overcast,saunders bay,,,,,TRUE,7:30,9:15,1:45
+2018,5/7/2018,58,52.8,,5,sw,sunny,harilla bay,8:30,lake trout,21,2,,8:00,13:15,5:15
+2018,5/7/2018,58,52.8,,5,sw,sunny,harilla bay,8:50,salmon,19,2,,8:00,13:15,5:15
+2018,5/7/2018,58,52.8,,5,sw,sunny,harilla bay,9:05,salmon,16,2,,8:00,13:15,5:15
+2018,5/7/2018,58,52.8,,5,sw,sunny,saunders bay,12:35,salmon,16,15,,8:00,13:15,5:15
+2018,5/7/2018,58,52.8,,5,sw,sunny,saunders bay,12:50,salmon,18,15,,8:00,13:15,5:15
+2018,5/8/2018,54,55,,0,,sunny,harilla bay,8:00,salmon,15,15,,7:30,12:15,4:45
+2018,5/8/2018,54,55,,0,,sunny,harilla bay,9:50,salmon,18,20,,7:30,12:15,4:45
+2018,5/8/2018,54,55,,0,,sunny,harilla bay,9:55,lake trout,22,20,,7:30,12:15,4:45
+2018,5/8/2018,54,55,,0,,sunny,harilla bay,10:05,salmon,19,20,,7:30,12:15,4:45
+2018,5/8/2018,54,55,,0,,sunny,harilla bay,10:50,salmon,18,20,,7:30,12:15,4:45
+2018,5/8/2018,54,55,,0,,sunny,harilla bay,11:10,lake trout,19,14,,7:30,12:15,4:45
+2018,5/8/2018,54,55,,0,,sunny,harilla bay,11:30,salmon,18,20,,7:30,12:15,4:45
+2018,5/9/2018,51,56.2,,0,,sunny,little bear bay,8:40,salmon,23,8,,7:30,11:00,3:30
+2018,5/9/2018,51,56.2,,0,,sunny,little bear bay,9:50,salmon,18,13,,7:30,11:00,3:30
+2018,5/12/2018,47,54.6,,0,,sunny,little bear bay,,,,,TRUE,8:30,11:00,2:30
+2018,5/13/2018,42,53.9,,0,,sunny,little bear bay,,,,,TRUE,7:45,9:30,1:45
+2018,5/13/2018,42,53.9,,0,,sunny,harilla bay,,,,,TRUE,7:45,9:30,1:45
+2018,5/16/2018,53,57.6,,10,se,sunny,saunders bay,9:45,salmon,14,29,,7:15,11:30,4:15
+2018,5/16/2018,53,57.6,,10,se,sunny,saunders bay,9:45,lake trout,20,29,,7:15,11:30,4:15
+2018,5/17/2018,52,52.7,,6,nw,overcast,saunders bay,,,,,TRUE,6:15,9:30,3:15
+2018,5/17/2018,52,52.7,,6,nw,overcast,north of diamond,,,,,TRUE,6:15,9:30,3:15
+2018,5/27/2018,57,59.3,,15,ene,overcast,west of timber,8:10,lake trout,20,27,,7:50,10:45,2:55
+2018,5/28/2018,52,57.8,,2,e,overcast,east of lockes,7:44,salmon,22,21,,7:30,10:00,2:30
+2018,5/28/2018,52,57.8,,2,e,overcast,east of lockes,8:59,lake trout,18,27,,7:30,10:00,2:30
+2018,5/31/2018,64,61.1,,5,n,sunny,east of lockes,,,,,TRUE,8:15,11:00,2:45
+2018,6/1/2018,70,63.4,,7,w,overcast,north of welch,8:52,salmon,22,20,,7:55,9:30,1:35
+2018,6/6/2018,54,62.6,,4,s,fog,south of welch,,,,,TRUE,7:10,10:30,3:20
+2018,6/6/2018,54,62.6,,4,s,fog,south of welch,,,,,TRUE,7:15,10:10,2:55
+2018,6/13/2018,64,63,,10,nw,sunny,south of welch,,,,,TRUE,16:55,19:20,2:25
+2018,6/23/2018,63,67.6,,0,,overcast,north of diamond,,,,,TRUE,7:30,10:45,3:15
+2018,6/27/2018,63,67.6,,9,sw,sunny,east of welch,,,,,TRUE,7:15,9:15,2:00
+2018,7/8/2018,61,72.7,,7,nw,sunny,south of welch,7:17,rainbow,10,29,,6:50,10:15,3:25
+2018,7/13/2018,65,75,,7,ne,sunny,north of diamond,9:07,rainbow,15,25,,7:30,9:30,2:00
+2018,7/14/2018,66,73.6,,0,,overcast,east of lockes,8:34,salmon,23,35,,8:00,11:45,3:45
+2018,7/14/2018,66,73.6,,0,,overcast,east of lockes,11:26,rainbow,15,25,,8:00,11:45,3:45
+2018,7/15/2018,68,73.5,,0,,overcast,north of welch,,,,,TRUE,7:20,10:05,2:45
+2018,7/16/2018,75,75.7,,5,nw,overcast,north of lockes,7:46,rainbow,15,25,,7:10,9:00,1:50
+2018,7/16/2018,75,75.7,,5,nw,overcast,north of lockes,8:35,rainbow,17,25,,7:10,9:00,1:50
+2018,7/20/2018,63,74.9,,7,sw,sunny,north of diamond,7:22,rainbow,15,25,,7:00,10:30,3:30
+2018,7/20/2018,63,74.9,,7,sw,sunny,north of diamond,9:04,rainbow,15,17,,7:00,10:30,3:30
+2018,7/20/2018,63,74.9,,7,sw,sunny,north of diamond,9:25,salmon,19,17,,7:00,10:30,3:30
+2018,7/21/2018,65,74.2,,5,se,sunny,north of welch,8:00,white perch,10,20,,7:30,9:30,2:00
+2018,7/21/2018,65,74.2,,5,se,sunny,north of welch,8:17,salmon,17,25,,7:30,9:30,2:00
+2018,7/27/2018,68,75.3,,3,w,sunny,north of welch,,,,,TRUE,7:15,9:45,2:30
+2018,7/28/2018,70,75.4,,5,w,overcast,east of lockes,,,,,TRUE,6:45,9:00,2:15
+2018,7/30/2018,65,76,,10,sw,hazy,east of welch,7:56,lake trout,17,23,,7:15,10:00,2:45
+2018,7/30/2018,65,76,,10,sw,hazy,east of welch,9:06,rainbow,16,35,,7:15,10:00,2:45
+2018,8/2/2018,73,76,,8,sw,overcast,east of lockes,6:49,rainbow,19,45,,6:20,10:15,3:55
+2018,8/2/2018,73,76,,8,sw,overcast,east of lockes,7:19,lake trout,16,45,,6:20,10:15,3:55
+2018,8/2/2018,73,76,,8,sw,overcast,east of lockes,7:19,rainbow,16,45,,6:20,10:15,3:55
+2018,8/2/2018,73,76,,8,sw,overcast,east of lockes,8:13,lake trout,18,45,,6:20,10:15,3:55
+2018,8/2/2018,73,76,,8,sw,overcast,east of lockes,9:03,salmon,21,45,,6:20,10:15,3:55
+2018,8/3/2018,75,77.3,,10,sw,sunny,east of lockes,8:03,salmon,17,39,,7:15,9:10,1:55
+2018,8/5/2018,69,77.3,,7,nw,sunny,east of lockes,7:10,salmon,21,45,,7:00,10:00,3:00
+2018,8/6/2018,68,78.1,,10,w,sunny,south of welch,7:09,lake trout,17,45,,6:50,10:00,3:10
+2018,8/6/2018,68,78.1,,10,w,sunny,south of welch,7:45,lake trout,15,45,,6:50,10:00,3:10
+2018,8/6/2018,68,78.1,,10,w,sunny,south of welch,8:25,lake trout,15,45,,6:50,10:00,3:10
+2018,8/8/2018,74,79.6,,6,nw,overcast,north of diamond,8:15,rainbow,15,25,,7:15,9:45,2:30
+2018,8/8/2018,74,79.6,,6,nw,overcast,north of diamond,8:30,white perch,10,30,,7:15,9:45,2:30
+2018,8/8/2018,74,79.6,,6,nw,overcast,north of diamond,8:45,white perch,10,30,,7:15,9:45,2:30
+2018,8/15/2018,69,76.1,,5,sw,overcast,south of welch,8:02,salmon,17,45,,7:15,10:00,2:45
+2018,8/15/2018,69,76.1,,5,sw,overcast,south of welch,8:02,white perch,10,30,,7:15,10:00,2:45
+2018,8/15/2018,69,76.1,,5,sw,overcast,south of welch,8:58,lake trout,19,45,,7:15,10:00,2:45
+2018,8/19/2018,66,76.1,,11,ne,sunny,west of lockes,,,,,TRUE,7:30,9:20,1:50
+2018,8/20/2018,62,75.8,,3,ne,overcast,north of welch,8:19,salmon,21,47,,7:30,9:15,1:45
+2018,8/20/2018,62,75.8,,3,ne,overcast,north of welch,8:46,lake trout,17,47,,7:30,9:15,1:45
+2018,8/24/2018,64,73.7,,9,nw,hazy,north of welch,8:30,salmon,17,41,,7:55,10:30,2:35
+2018,8/25/2018,60,74.4,,4,nw,fog,west of lockes,,,,,TRUE,7:30,10:00,2:30
+2018,8/26/2018,60,74.1,,0,,sunny,north of diamond,8:38,salmon,17,47,,7:15,10:15,3:00
+2018,8/26/2018,60,74.1,,0,,sunny,north of diamond,8:53,rainbow,16,47,,7:15,10:15,3:00
+2018,8/26/2018,60,74.1,,0,,sunny,north of diamond,9:03,rainbow,17,51,,7:15,10:15,3:00
+2018,8/26/2018,60,74.1,,0,,sunny,north of diamond,9:47,salmon,22,51,,7:15,10:15,3:00
+2018,8/26/2018,60,74.1,,0,,sunny,north of diamond,10:15,salmon,22,51,,7:15,10:15,3:00
+2018,8/27/2018,65,74.5,,11,sw,sunny,north of diamond,9:44,lake trout,18,51,,8:45,10:45,2:00
+2018,8/28/2018,73,75.7,,3,sw,sunny,north of welch,6:55,rainbow,18,43,,6:50,8:30,1:40
+2018,8/28/2018,73,75.7,,3,sw,sunny,north of welch,6:55,rainbow,18,51,,6:50,8:30,1:40
+2018,8/28/2018,73,75.7,,3,sw,sunny,north of welch,7:30,salmon,22,45,,6:50,8:30,1:40
+2018,8/28/2018,73,75.7,,3,sw,sunny,north of welch,6:55,rainbow,18,43,,6:50,8:30,1:40
+2018,8/28/2018,86,77.1,,10,w,hazy,north of diamond,18:13,lake trout,17,51,,17:45,18:45,1:00
+2018,8/28/2018,86,77.1,,10,w,hazy,north of diamond,18:32,lake trout,16,51,,17:45,18:45,1:00
+2018,8/29/2018,73,76.2,,6,sw,sunny,north of diamond,8:57,rainbow,15,45,,7:15,9:55,2:40
+2018,8/29/2018,73,76.2,,6,sw,sunny,north of diamond,9:22,salmon,17,45,,7:15,9:55,2:40
+2018,8/31/2018,62,74.7,,5,se,hazy,east of diamond,8:57,lake trout,18,51,,7:15,10:20,3:05
+2018,9/1/2018,62,75.3,,8,se,cloudy,north of diamond,8:50,salmon,17,,,7:30,9:00,1:30
+2018,9/2/2018,64,75,,7,sw,cloudy,alton bay,9:15,salmon,17,45,,7:20,10:20,3:00
+2018,9/2/2018,64,75,,7,sw,cloudy,alton bay,9:27,rainbow,15,39,,7:20,10:20,3:00
+2018,9/3/2018,65,75.8,,3,sw,sunny,alton bay,,,,,TRUE,7:55,9:40,1:45
+2018,9/11/2018,66,72.6,,2,nw,overcast,alton bay,15:15,rainbow,17,45,,14:00,16:15,2:15
+2018,9/12/2018,65,72.3,,5,ne,overcast,north of diamond,8:00,salmon,18,45,,7:30,9:55,2:25
+2018,9/12/2018,65,72.3,,5,ne,overcast,north of diamond,8:06,lake trout,16,45,,7:30,9:55,2:25
+2018,9/12/2018,65,72.3,,5,ne,overcast,north of diamond,9:47,lake trout,17,45,,7:30,9:55,2:25
+2018,9/16/2018,64,72.5,,5,s,fog,varney point,7:22,lake trout,15,45,,7:10,10:05,2:55
+2018,9/21/2018,60,71.4,,7,sw,overcast,alton bay,8:07,lake trout,22,45,,7:45,10:00,2:15
+2018,9/21/2018,60,71.4,,7,sw,overcast,alton bay,8:17,salmon,21,45,,7:45,10:00,2:15
+2019,5/8/2019,55,48.6,,12,nw,sunny,harilla bay,9:30,salmon,21,2,,8:30,10:30,2:00
+2019,5/9/2019,51,48.1,,3,se,sunny,harilla bay,9:30,rainbow,17,2,,8:30,12:30,4:00
+2019,5/26/2019,55,56.7,,7,nw,overcast,harilla bay,,,,,TRUE,7:00,10:45,3:45
+2019,5/26/2019,55,56.7,,7,nw,overcast,little bear bay,,,,,TRUE,7:00,10:45,3:45
+2019,5/26/2019,55,56.7,,7,nw,overcast,east of witches,,,,,TRUE,7:00,10:45,3:45
+2019,5/27/2019,61,55.6,,8,sw,sunny,east of welch,,,,,TRUE,7:45,9:45,2:00
+2019,6/2/2019,64,64.5,,12,nw,sunny,north of welch,,,,,TRUE,7:45,9:15,1:30
+2019,6/23/2019,65,65,,10,nw,sunny,east of governors,,,,,TRUE,8:00,9:00,1:00
+2019,6/25/2019,63,65.7,,12,ne,overcast,south of governors,9:20,lake trout,18,35,,8:00,10:30,2:30
+2019,6/25/2019,63,65.7,,12,ne,overcast,south of governors,9:50,lake trout,15,35,,8:00,10:30,2:30
+2019,7/10/2019,64,74.9,,9,nw,hazy,south of welch,8:15,rainbow,12,15,,7:15,9:20,2:05
+2019,7/10/2019,64,74.9,,9,nw,hazy,south of welch,8:26,rainbow,12,15,,7:15,9:20,2:05
+2019,8/2/2019,65,78.3,,10,sw,sunny,north of diamond,,,,,TRUE,8:45,10:00,1:15
+2019,8/12/2019,,,45,15,nw,sunny,north of welch,8:45,lake trout,19,51,,8:45,11:00,2:15
+2019,8/12/2019,,,45,15,nw,sunny,north of welch,9:00,salmon,18,51,,8:45,11:00,2:15
+2019,8/12/2019,,,45,15,nw,sunny,north of welch,9:15,salmon,15,51,,8:45,11:00,2:15
+2019,8/14/2019,,,65,8,ne,sunny,north of diamond,8:05,salmon,15,45,,8:00,11:20,3:20
+2019,8/14/2019,,,65,8,ne,sunny,north of diamond,8:45,salmon,15,45,,8:00,11:20,3:20
+2019,8/14/2019,,,65,8,ne,sunny,north of diamond,9:25,salmon,15,45,,8:00,11:20,3:20
+2019,8/15/2019,,,50,8,ne,sunny,north of diamond,9:25,salmon,15,45,,8:00,11:20,3:20
+2019,8/17/2019,,,55,6,ne,overcast,north of diamond,8:30,salmon,21,51,,8:20,11:50,3:30
+2019,8/17/2019,,,55,6,ne,overcast,north of diamond,9:00,salmon,19,49,,8:20,11:50,3:30
+2019,8/17/2019,,,55,6,ne,overcast,north of diamond,9:04,rainbow,15,51,,8:20,11:50,3:30
+2019,8/17/2019,,,55,6,ne,overcast,north of diamond,9:24,lake trout,18,51,,8:20,11:50,3:30
+2019,8/17/2019,,,55,6,ne,overcast,north of diamond,11:09,lake trout,17,51,,8:20,11:50,3:30
+2019,8/18/2019,,,50,6,nw,sunny,north of welch,8:06,salmon,20,43,,8:00,11:00,3:00
+2019,8/18/2019,,,50,6,nw,sunny,north of welch,8:18,salmon,21,41,,8:00,11:00,3:00
+2019,8/18/2019,,,50,6,nw,sunny,north of welch,8:19,rainbow,15,43,,8:00,11:00,3:00
+2019,8/18/2019,,,50,6,nw,sunny,north of welch,8:47,lake trout,15,41,,8:00,11:00,3:00
+2019,8/20/2019,,,45,8,sw,sunny,north of lockes,8:06,lake trout,16,35,,7:15,10:45,3:30
+2019,8/20/2019,,,45,8,sw,sunny,north of lockes,8:14,lake trout,14,37,,7:15,10:45,3:30
+2019,8/20/2019,,,45,8,sw,sunny,south of welch,10:18,rainbow,16,47,,7:15,10:45,3:30
+2019,8/21/2019,,,55,10,nw,overcast,north of diamond,8:44,salmon,21,49,,8:15,11:15,3:00
+2019,8/21/2019,,,55,10,nw,overcast,north of diamond,10:09,salmon,16,49,,8:15,11:15,3:00
+2019,8/21/2019,,,55,10,nw,overcast,north of diamond,10:42,lake trout,19,51,,8:15,11:15,3:00
+2019,8/22/2019,,,70,0,,sunny,north of diamond,10:16,lake trout,18,63,,7:45,10:50,3:05
+2019,8/22/2019,,,70,0,,sunny,north of diamond,10:30,lake trout,15,63,,7:45,10:50,3:05
+2019,8/24/2019,,,55,6,nw,sunny,north of diamond,9:08,rainbow,15,47,,8:10,11:15,3:05
+2019,8/24/2019,,,55,6,nw,sunny,north of diamond,9:24,rainbow,15,45,,8:10,11:15,3:05
+2019,8/24/2019,,,55,6,nw,sunny,north of diamond,9:37,rainbow,16,45,,8:10,11:15,3:05
+2019,8/24/2019,,,55,6,nw,sunny,north of diamond,9:49,salmon,21,43,,8:10,11:15,3:05
+2019,8/25/2019,,,80,12,ne,sunny,west of welch,,,,,TRUE,8:15,9:45,1:30
+2019,8/25/2019,,,80,12,ne,sunny,west of lockes,,,,,TRUE,8:15,9:45,1:30
+2019,8/30/2019,,,55,10,sw,sunny,north of diamond,10:20,salmon,16,51,,8:30,10:50,2:20
+2019,9/3/2019,,,60,6,nw,sunny,north of diamond,,,,,TRUE,8:00,9:30,1:30
+2019,9/21/2019,,,60,9,nw,sunny,north of diamond,8:36,lake trout,17,49,,8:20,9:45,1:25
+2019,9/21/2019,,,60,9,nw,sunny,north of diamond,9:32,lake trout,15,53,,8:20,9:45,1:25
+2019,9/22/2019,,,60,3,nw,fog,alton bay,,,,,TRUE,8:00,9:40,1:40
+2020,6/14/2020,,63,,7,se,sunny,north of welch,7:17,lake trout ,17,17,,7:00,10:00,3:00
+2020,6/20/2020,,,45,4,sw,sunny,north of welch,,,,,TRUE,6:35,9:00,2:25
+2020,9/8/2020,75,69,,7,nw,sunny,alton bay,10:03,lake trout,17,69,,7:30,10:55,3:25
+2021,8/2/2021,,71,,14,n,sunny,north of welch,,,,,TRUE,11:15,12:00,0:45
+2022,4/8/2022,,45,,0,,cloudy,tip of witches,16:15,lake trout,20,2,,16:00,17:45,1:45
+2022,4/9/2022,,40,,0,,cloudy,harilla bay,,,,,TRUE,9:00,12:00,3:00
+2022,4/10/2022,,42,,0,,cloudy,saunders bay,,,,,TRUE,8:30,11:30,3:00
+2022,4/11/2022,,42,,0,,cloudy,east of governors,,,,,TRUE,10:00,11:30,1:30
+2022,4/12/2022,,50,,0,,sunny,harilla bay,15:30,lake trout,22,10,,12:00,16:00,4:00
+2022,4/18/2022,,45,,7,e,cloudy,spindle point,,,,,TRUE,9:30,11:45,2:15
+2022,4/30/2022,,48,,10,nw,sunny,harilla bay,12:03,salmon,17,10,,10:00,14:00,4:00
+2022,5/1/2022,68,48,,0,,sunny,harilla bay,12:24,rainbow,17,15,,10:30,14:00,3:30
+2022,5/2/2022,51,45,,3,e,sunny,south of welch,12:18,lake trout,17,15,,10:30,13:00,2:30
