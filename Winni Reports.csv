@@ -22,7 +22,7 @@ year,date,air_temp_f,water_temp_f,thermocline_depth_ft,wind_speed_mph,wind_dir,w
 2015,5/14/2015,45,50,,10,nw,,north of lockes,7:45,salmon,17,28,,7:15,11:55,4:40
 2015,5/14/2015,45,50,,10,nw,,south of witches,8:45,salmon,20,38,,7:15,11:55,4:40
 2015,5/14/2015,45,50,,0,,,north of lockes,8:55,salmon,,,,7:15,11:55,4:40
-14:30,5/15/2015,69,55,,5,nw,,harilla bay,14:30,salmon,18,,,14:30,16:20,1:50
+2015,5/15/2015,69,55,,5,nw,,harilla bay,14:30,salmon,18,,,14:30,16:20,1:50
 2015,5/15/2015,69,55,,5,nw,,little bear bay,16:20,salmon,18,,,14:30,16:20,1:50
 2015,5/16/2015,53,57,,5,nw,overcast,little bear bay,8:30,salmon,10,10,,5:15,9:30,4:15
 2015,5/17/2015,58,58,,0,,,harilla bay,5:45,rainbow,15,2,,5:20,10:15,4:55
@@ -201,7 +201,7 @@ year,date,air_temp_f,water_temp_f,thermocline_depth_ft,wind_speed_mph,wind_dir,w
 2016,7/12/2016,62,71.8,,8,sw,sunny,east of welch,8:35,smallmouth,10,25,,7:45,10:45,3:00
 2016,7/13/2016,71,72.5,,3,w,sunny,north of lockes,8:10,rainbow,10,29,,7:45,10:30,2:45
 2016,7/15/2016,72,73.4,,8,sw,sunny,north of diamond,,,,,TRUE,8:00,10:00,2:00
-7:40,8/3/2016,60,75.6,,4,sw,sunny,north of lockes,,,,,TRUE,7:40,10:15,2:35
+2016,8/3/2016,60,75.6,,4,sw,sunny,north of lockes,,,,,TRUE,7:40,10:15,2:35
 2016,8/8/2016,60,75.3,,8,w,sunny,north of lockes,7:50,salmon,18,20,,7:00,10:10,3:10
 2016,8/8/2016,60,75.3,,8,w,sunny,north of lockes,9:30,salmon,19,22,,7:00,10:10,3:10
 2016,8/10/2016,66,76.2,,4,nw,overcast,east of welch,7:50,rainbow,17,31,,7:30,10:15,2:45
