@@ -1,12 +1,39 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
+from datetime import date
+from PIL import Image
 
+col1, col2 = st.columns(2)
 
-st.title("Helping Bill Catch Fish on Lake Winnepausakee")
+st.title("Winnipesaukee Fishing Reports")
+st.header("Helping Billy Catch Fish")
 
-url = 'https://github.com/aothree/Fishing-Winni/blob/main/model_data/winni_reports.csv?raw=true'
+st.text('''This website shows you a breakdown of the fish you have caught, or not caught, \nsince 2015. Select an area of the lake, then select weather conditions to see \nhow that area of the lake has fished historically.''')
+
+url = 'https://github.com/dancosta154/Winnipesaukee_MultiRegression/blob/main/model_data/winni_reports.csv?raw=true'
 df = pd.read_csv(url,index_col=0)
+
+st.subheader('The following table shows **all** records')
+df
+
+# Download df to CSV
+today = date.today() # used for naming csv
+
+def convert_df(df):
+    return df.to_csv().encode('utf-8')
+
+csv = convert_df(df)
+
+st.download_button(
+    'Click to download table', 
+    csv,
+    f'winni_data_{today}.csv',
+    'text/csv',
+    key='download-csv'
+)
+
+st.markdown("""---""")
 
 # create list of all locations
 location = df['location'].unique()
@@ -17,7 +44,6 @@ location_selector = sidebar.selectbox(
     "Select a Location",
     location
 )
-
 
 # filter df to only records with the selected location 
 df_location = df[df['location'] == location_selector]
@@ -32,28 +58,51 @@ weather_selector = sidebar.selectbox(
     weather
 )
 
-# create slider with wind dropdown
-wind = sidebar.slider('How windy is it?', 0, 20,2)
-wind_plus_minus = sidebar.slider("Plus or Minus wind mph", 0, 8,1)
+# create slider with temperatures
+temp = sidebar.slider('What is the temperature?', 35, 90, 66, 1)
+temp_plus_minus = sidebar.slider("Plus or Minus Degrees", 0, 10, 5, 1)
+
+# create slider with wind
+wind = sidebar.slider('How windy is it?', 0, 20, 7, 2)
+wind_plus_minus = sidebar.slider("Plus or Minus Windspeed MPH", 0, 10, 3, 1)
 
 # filter df_location to only records with selected weather condition
 df_weather = df_location[df['weather'] == weather_selector] 
-# filter df_weather to a range of wind within seleceted plus_minus
+# filter df_weather to a range of wind within selected plus_minus
 df_wind = df_weather[df_weather['wind_speed_mph'].between(wind - wind_plus_minus, wind + wind_plus_minus)]
+# filter df_wind to a range of temperatures within selected plus_minus
+df_temp = df_wind[df_wind['air_temp_f'].between(temp - temp_plus_minus, temp + temp_plus_minus)]
 
+st.subheader('This section reflects the location and weather selections.')
 
+col1, col2 = st.columns(2)
 
-
+with col1:
+    st.write(f"**{location_selector.title()} Statistics**")
+    st.write(f'This location has been fished **{df_temp.shape[0]} days**') # Commenting out because I think this shows all records at location, not unique dates
+    st.write(f"This location was **last fished on {df_temp['date'].max()}**")
+with col2:
+    st.write(f"**Weather Conditions: {weather_selector.title()}, {temp}&deg;, {wind} mph winds**")
+    st.write(f'This location has been fished **{df_temp.shape[0]} days** with these weather conditions')
+    st.write(f"Under these weather conditions, this location was last fished on **{df_temp['date'].max()}**")
 
 # reporting about selected location 
-st.write(f'This location has been fished {df_location.shape[0]} days')
-st.write(f"This location was last fished on {df_location['date'].max()}")
-st.write(f'This location has been fished {df_wind.shape[0]} days with {weather_selector} conditions and wind of {wind}, plus or minus {wind_plus_minus} mph')
-st.write(f"This location was last fished, with these weather conditions, on {df_wind['date'].max()}")
+# st.markdown(f"This location has been fished **{len(df_location['date'].unique())} days**") # I think this is accurate, but opens a can of words - so commenting out for now
+# st.markdown(f'This location has been fished **{df_wind.shape[0]} days** with **{weather_selector} conditions** and **wind of {wind}**, plus or minus **{wind_plus_minus} mph**')
 
-st.markdown("""---""")
-st.write('The following data shows records matching the selections')
-st.dataframe(df_wind)
+st.dataframe(df_temp)
+st.write(f'{len(df_temp)} records')
+
+# Download df to CSV
+csv = convert_df(df_temp)
+
+st.download_button(
+    'Click to download table', 
+    csv,
+    f'winni_data_{location_selector}_{today}.csv',
+    'text/csv',
+    key='download-csv'
+)
 
 st.markdown("""---""")
 
@@ -64,9 +113,8 @@ x.reset_index(inplace = True)
 x['fish_type'] = x['fish_type'].map(lambda x: x.title())
 x.set_index('fish_type', inplace = True)
 
-
 # creates pie-chart based on user selections
-st.write('Pie Chart does not account for wind')
+st.caption('Pie chart does not account for temperature or wind speed')
 fig, ax = plt.subplots()
 ax.pie(x['Percent_Caught'], 
        labels=x.index, 
@@ -77,3 +125,5 @@ plt.title(f'Fish Caught - {location_selector.title()} \n {weather_selector.title
 st.pyplot(fig)
 
 st.dataframe(x)
+
+st.button('Will I Catch a Fish Tomorrow?!')
