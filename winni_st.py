@@ -39,11 +39,14 @@ st.markdown("""---""")
 location = df['location'].unique()
 
 # create sidebar with location dropdown
+
 sidebar = st.sidebar
-location_selector = sidebar.selectbox(
-    "Select a Location",
-    location
-)
+location_check = sidebar.checkbox('Update Location')
+if location_check:  
+    location_selector = sidebar.selectbox(
+        "Select a Location",
+        location
+    )
 
 # filter df to only records with the selected location 
 df_location = df[df['location'] == location_selector]
@@ -53,10 +56,12 @@ mylist = [str(x) for x in df_location['weather'].unique()]
 weather = [x for x in mylist if x != 'nan']
 
 # create sidebar with weather dropdown
-weather_selector = sidebar.selectbox(
-    "Select a Weather Condition",
-    weather
-)
+weather_check = sidebar.checkbox('Update Weather')
+if weather_check:  
+    weather_selector = sidebar.selectbox(
+        "Select a Weather Condition",
+        weather
+    )
 
 # create slider with temperatures
 temp = sidebar.slider('What is the temperature?', 35, 90, 66, 1)
@@ -73,7 +78,7 @@ df_wind = df_weather[df_weather['wind_speed_mph'].between(wind - wind_plus_minus
 # filter df_wind to a range of temperatures within selected plus_minus
 df_temp = df_wind[df_wind['air_temp_f'].between(temp - temp_plus_minus, temp + temp_plus_minus)]
 
-st.subheader('This section reflects the location and weather selections.')
+st.subheader('This section reflects the location and weather selections')
 
 col1, col2 = st.columns(2)
 
@@ -113,6 +118,7 @@ x.reset_index(inplace = True)
 x['fish_type'] = x['fish_type'].map(lambda x: x.title())
 x.set_index('fish_type', inplace = True)
 
+st.subheader('This graph provides a breakdown of fish caught by location')
 # creates pie-chart based on user selections
 st.caption('Pie chart does not account for temperature or wind speed')
 fig, ax = plt.subplots()
