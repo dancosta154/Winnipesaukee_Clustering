@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from datetime import date
-from PIL import Image
 
 col1, col2 = st.columns(2)
 
