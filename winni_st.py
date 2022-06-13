@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 from datetime import date
 from PIL import Image
@@ -41,12 +42,10 @@ location = df['location'].unique()
 # create sidebar with location dropdown
 
 sidebar = st.sidebar
-location_check = sidebar.checkbox('Update Location')
-if location_check:  
-    location_selector = sidebar.selectbox(
-        "Select a Location",
-        location
-    )
+location_selector = sidebar.selectbox(
+    "Select a Location",
+    location
+)
 
 # filter df to only records with the selected location 
 df_location = df[df['location'] == location_selector]
@@ -56,12 +55,10 @@ mylist = [str(x) for x in df_location['weather'].unique()]
 weather = [x for x in mylist if x != 'nan']
 
 # create sidebar with weather dropdown
-weather_check = sidebar.checkbox('Update Weather')
-if weather_check:  
-    weather_selector = sidebar.selectbox(
-        "Select a Weather Condition",
-        weather
-    )
+weather_selector = sidebar.selectbox(
+    "Select a Weather Condition",
+    weather
+)
 
 # create slider with temperatures
 temp = sidebar.slider('What is the temperature?', 35, 90, 66, 1)
@@ -84,11 +81,11 @@ col1, col2 = st.columns(2)
 
 with col1:
     st.write(f"**{location_selector.title()} Statistics**")
-    st.write(f'This location has been fished **{df_temp.shape[0]} days**') # Commenting out because I think this shows all records at location, not unique dates
+    st.write(f'This location has **{df_temp.shape[0]} records**') # Commenting out because I think this shows all records at location, not unique dates
     st.write(f"This location was **last fished on {df_temp['date'].max()}**")
 with col2:
     st.write(f"**Weather Conditions: {weather_selector.title()}, {temp}&deg;, {wind} mph winds**")
-    st.write(f'This location has been fished **{df_temp.shape[0]} days** with these weather conditions')
+    st.write(f'This location has **{df_temp.shape[0]} records** with these weather conditions')
     st.write(f"Under these weather conditions, this location was last fished on **{df_temp['date'].max()}**")
 
 # reporting about selected location 
@@ -131,5 +128,7 @@ plt.title(f'Fish Caught - {location_selector.title()} \n {weather_selector.title
 st.pyplot(fig)
 
 st.dataframe(x)
+
+st.subheader('Will I get skunked tomorrow?')
 
 st.button('Will I Catch a Fish Tomorrow?!')
