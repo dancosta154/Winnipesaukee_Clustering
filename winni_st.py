@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
+import seaborn as sns
 from datetime import date
 import altair as alt
 
@@ -120,8 +122,6 @@ records that match the selections you choose. Have fun!""")
     x['fish_type'] = x['fish_type'].map(lambda x: x.title())
     x.set_index('fish_type', inplace = True)
 
-    st.subheader('This graph provides a breakdown of fish caught by location')
-
     # creates pie-chart based on user selections
     fig, ax = plt.subplots()
     ax.pie(x['Percent_Caught'], 
@@ -129,12 +129,15 @@ records that match the selections you choose. Have fun!""")
            autopct='%1.1f%%',
            textprops = {'size': 'small'},
            wedgeprops={'linewidth': 3.0, 'edgecolor': 'white'})
-    plt.title(f'Fish Caught - {location_selector.title()} \n {weather_selector.title()} Weather Conditions')
+    plt.title(f'Fish Caught {location_selector.title()}: \n {weather_selector.title()} Weather Conditions', fontdict={'fontsize': 8})
     st.pyplot(fig)
 
     # Display pie-chart table
     st.dataframe(x)
-
+    
+    st.markdown("""---""")
+ 
+    
 
     ## Bar Chart and Table associated with chart
     # creates bar-chart based on user selections
@@ -142,16 +145,17 @@ records that match the selections you choose. Have fun!""")
     z = df.loc[(df['location'] == location_selector) & (df['weather'] == weather_selector) & (df['wind_speed_mph'].between(wind - wind_plus_minus, wind + wind_plus_minus)) & (df['air_temp_f'].between(temp - temp_plus_minus, temp + temp_plus_minus))].groupby('month').count()['date']
     y = y.reset_index()
     z = z.reset_index()
-    df = pd.merge(y, z, on = 'month')
+    df = pd.merge(z, y, on = 'month')
     df.rename(columns={'month': 'Month', 'skunked': 'Skunked', 'date': 'Times Fished'}, inplace = True)
     df_month = df.copy()
     df_month['Month'] = df_month['Month'].map({4: 'April', 5: 'May', 6: 'June', 7: 'July', 8: 'August', 9: 'September'})
 
+    st.markdown("<h6 style='text-align: center; color: black;'>Times Fished vs. Times Skunked</h6>", unsafe_allow_html=True)
     st.bar_chart(df_month.set_index('Month'), width=0, height=0, use_container_width=True)
 
     # Display bar-chart table
     st.dataframe(df)
-
+    
 # ----------------------------------------------------------------------------
 # Where to Fish
 where_to_fish = sidebar.checkbox("I don't know where to fish...")
@@ -162,7 +166,7 @@ if where_to_fish:
     
         st.text("""This page helps to show you where to fish based on the weather conditions you 
 select. It will filter the table and graphs to show you those records that match 
-where you have fished previously under these conditions, and the graphs will 
+where you have fished previously under the selected conditions, and the graphs will 
 show you where the best places have been with these weather conditions.""")
         
         st.markdown("""---""")
@@ -197,11 +201,13 @@ show you where the best places have been with these weather conditions.""")
         st.dataframe(df_where)
         st.write(f'{len(df_where)} records')
         
+        # Distribution of Locations Fished
+        
         hist = alt.Chart(df_where).mark_bar(
             size=30
         ).encode(
-            x=alt.X("location", bin=False),
-            y='count()'
+            x=alt.X("location", bin=False, axis=alt.Axis(labelAngle=-45)),
+            y=alt.Y('count()', axis=alt.Axis(tickMinStep=1)),
         ).properties(
             title='Distribution of Locations Fished',
             width=800,
@@ -213,13 +219,15 @@ show you where the best places have been with these weather conditions.""")
         
         st.altair_chart(hist)
         
+        # Fish Caught by Location
+        
         fish_caught = df_where.loc[(df['fish_type'] != 'no_fish_caught')].groupby('location')['fish_type'].count().sort_values(ascending=False).to_frame().rename(columns={"fish_type":"# of Fish Caught"})
         fish_caught.reset_index(inplace = True)
         fish_caught.rename(columns={"fish_type":"# of Fish Caught"})
         
         bar = alt.Chart(fish_caught).mark_bar().encode(
             x=alt.X('location', sort='-y', axis=alt.Axis(labelAngle=-45)),
-            y='# of Fish Caught'
+            y=alt.Y('# of Fish Caught', axis=alt.Axis(tickMinStep=1)),
         ).properties(
             title = 'Fish Caught by Location',
             width=800,
