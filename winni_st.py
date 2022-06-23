@@ -193,7 +193,7 @@ if selected == 'Where Should I Fish?':
     temp_plus_minus = sidebar.slider("Plus or Minus Degrees", 0, 30, 30, 1)
 
     # wind sliders
-    wind = sidebar.slider('Select a Wind Speed', 0, 20, 7, 2)
+    wind = sidebar.slider('Select a Wind Speed', 0, 20, 7, 1)
     wind_plus_minus = sidebar.slider("Plus or Minus Windspeed MPH", 0, 30, 30, 1)
 
     df_weather = df.loc[(df['weather'] == weather_condition) & (df['wind_speed_mph'].between(wind - wind_plus_minus, wind + wind_plus_minus)) & (df['air_temp_f'].between(temp - temp_plus_minus, temp + temp_plus_minus)) & (df['wind_dir'] == wind_dir_selector)]
@@ -201,14 +201,14 @@ if selected == 'Where Should I Fish?':
     st.dataframe(df_weather)
     st.write(f'{len(df_weather)} records')
 
-    # Distribution of Locations Fished
-    hist = alt.Chart(df_weather).mark_bar(
-        size=30
-    ).encode(
-        x=alt.X("location", bin=False, axis=alt.Axis(labelAngle=-45)),
-        y=alt.Y('count()', axis=alt.Axis(tickMinStep=1)),
+    # Distribution of Locations Fished    
+    days_fished = df_weather.groupby(['location', 'date']).count().groupby('location').count()['month'].sort_values(ascending=False).to_frame().rename(columns={"month":"# of Days Fished"}).reset_index()
+       
+    days_fished_bc = alt.Chart(days_fished).mark_bar(size=40).encode(
+        x=alt.X('location', sort='-y', axis=alt.Axis(labelAngle=-45)),
+        y=alt.Y('# of Days Fished', axis=alt.Axis(tickMinStep=1)),
     ).properties(
-        title='Distribution of Locations Fished',
+        title = 'Days Fished by Location',
         width=800,
         height=600
     ).configure_title(
@@ -216,13 +216,13 @@ if selected == 'Where Should I Fish?':
         color='black'
     )
 
-    st.altair_chart(hist)
+    st.altair_chart(days_fished_bc)
 
     # Bar Chart - Fish Caught by Location
     fish_caught = df_weather.loc[(df['fish_type'] != 'no_fish_caught')].groupby('location')['fish_type'].count().sort_values(ascending=False).to_frame().rename(columns={"fish_type":"# of Fish Caught"}).reset_index()
-    fish_caught.rename(columns={"fish_type":"# of Fish Caught"})
+    # fish_caught.rename(columns={"fish_type":"# of Fish Caught"})
 
-    bar_chart = alt.Chart(fish_caught).mark_bar().encode(
+    bar_chart = alt.Chart(fish_caught).mark_bar(size=40).encode(
         x=alt.X('location', sort='-y', axis=alt.Axis(labelAngle=-45)),
         y=alt.Y('# of Fish Caught', axis=alt.Axis(tickMinStep=1)),
     ).properties(
