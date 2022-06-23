@@ -89,7 +89,7 @@ if selected == 'Show Me My Fish':
     temp_plus_minus = sidebar.slider("Plus or Minus Degrees", 0, 30, 30, 1)
 
     # wind sliders
-    wind = sidebar.slider('Select a Wind Speed', 0, 20, 7, 2)
+    wind = sidebar.slider('Select a Wind Speed', 0, 20, 7, 1)
     wind_plus_minus = sidebar.slider("Plus or Minus Windspeed MPH", 0, 30, 30, 1)
 
     df_weather = df_location[(df_location['weather'] == weather_selector) & (df_location['wind_speed_mph'].between(wind - wind_plus_minus, wind + wind_plus_minus)) & (df_location['air_temp_f'].between(temp - temp_plus_minus, temp + temp_plus_minus))] 
@@ -238,11 +238,36 @@ if selected == 'Where Should I Fish?':
     st.write(fish_caught.head(10))
     
 if selected == 'Add Fish':
-    d = st.date_input(
+    day = st.date_input(
      "What is the date you fished?",
      datetime.date(2022, 6, 22))
     
-    st.write('You caught these fish on:', d)
+    fish_type = st.selectbox(
+     'What type of fish?',
+     ('Salmon', 'Rainbow', 'Lake Trout', 'Horned Pout', 'Smallmouth', 'No Fish Caught')
+    ) 
+    
+    fish_length = st.number_input('Length of Fish')
+    
+    weather_condition = st.selectbox(
+        "Select a Weather Condition",
+        weather
+    )
+    
+    temperature = st.number_input('Air Temp')
+    
+    water_temperature = st.number_input('Water Temp')
+    
+    wind_dir_selector = st.selectbox(
+        'Select a Wind Direction',
+        wind_directions
+    )
+    
+    wind_speed = st.number_input('Wind Speed')
+
+    st.write(f'''You caught a {fish_length} inch {fish_type} on {day}.
+       **Weather conditions:** {weather_condition.title()}, {temperature}&deg;. {wind_dir_selector.upper()} winds blowing {wind_speed} mph.''')
+    
     
 if selected == 'How Does My Data Cluster?':
     st.write('Working on this section')
