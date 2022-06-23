@@ -150,7 +150,6 @@ if selected == 'Show Me My Fish':
 
     st.markdown("""---""") 
 
-
     ## Bar Chart and Table associated with chart
     # creates bar-chart based on user selections
     a = df_weather.groupby('month').sum()['skunked'].reset_index()
