@@ -70,18 +70,18 @@ if selected == 'Show Me My Fish':
     
     location_selector = sidebar.selectbox(
         "Select a Location",
-        location
+        np.sort(location)
     )
 
     # filter df to only records with the selected location 
     df_location = df[df['location'] == location_selector]
 
     # get list of all weather conditions that have occurred in selected location
-    weather = [str(x) for x in df_location['weather'].unique() if x != 'no_weather_recorded']
+    weather = np.sort([str(x) for x in df_location['weather'].unique() if x != 'no_weather_recorded'])[::-1]
 
     weather_selector = sidebar.selectbox(
         "Select a Weather Condition",
-        np.sort(weather)
+        weather
     )
 
     # temperature sliders
@@ -96,7 +96,10 @@ if selected == 'Show Me My Fish':
 
     # Reporting about selected location 
     st.write(f"**Weather Conditions: {weather_selector.title()}, {temp}&deg;, {wind} mph winds** for **{location_selector.title()}**")
-    st.write(f'This location has **{df_weather.shape[0]} records** with these weather conditions')
+    if df_weather.shape[0] > 1:
+        st.write(f'This location has **{df_weather.shape[0]} records** with these weather conditions')
+    else:
+        st.write(f'This location has **{df_weather.shape[0]} record** with these weather conditions')
     st.write(f"Under these weather conditions, this location was last fished on **{df_weather['date'].max()}**")
 
     st.dataframe(df_weather)
