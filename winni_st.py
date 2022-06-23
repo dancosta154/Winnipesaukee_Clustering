@@ -242,6 +242,11 @@ if selected == 'Add Fish':
      "What is the date you fished?",
      datetime.date(2022, 6, 22))
     
+    location_selector = st.selectbox(
+        "Where did you fish?",
+        np.sort(location)
+    )
+    
     fish_type = st.selectbox(
      'What type of fish?',
      ('Salmon', 'Rainbow', 'Lake Trout', 'Horned Pout', 'Smallmouth', 'No Fish Caught')
@@ -265,8 +270,11 @@ if selected == 'Add Fish':
     
     wind_speed = st.number_input('Wind Speed')
 
-    st.write(f'''You caught a {fish_length} inch {fish_type} on {day}.
+    st.write(f'''You caught a {fish_length} inch {fish_type} on {day} at {location_selector.title()}.
        **Weather conditions:** {weather_condition.title()}, {temperature}&deg;. {wind_dir_selector.upper()} winds blowing {wind_speed} mph.''')
+    
+    if st.button('Submit Record'):
+        st.write('Record Submitted!')
     
     
 if selected == 'How Does My Data Cluster?':
