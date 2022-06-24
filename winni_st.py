@@ -7,6 +7,8 @@ import seaborn as sns
 from datetime import date
 import altair as alt
 import datetime
+from sklearn.cluster import KMeans
+
 
 html_temp = """
     <div style="background:#025246 ;padding:10px">
@@ -28,6 +30,7 @@ def make_unique_list(col):
 location = make_unique_list(df['location'])
 weather = [str(x) for x in df['weather'].unique() if x != 'no_weather_recorded']
 wind_directions = make_unique_list(df['wind_dir'])
+numeric_cols = df.select_dtypes(include=np.number).columns.tolist()
 
 # create sidebar and sidebar options
 sidebar = st.sidebar
@@ -35,7 +38,7 @@ sidebar = st.sidebar
 with sidebar:
     selected = option_menu(
         menu_title = 'Navigation',
-        options=['Home', 'Show Me My Fish', 'Where Should I Fish?', 'Add Fish', 'How Does My Data Cluster?'],
+        options=['Home', 'Show Me My Fish', 'Where Should I Fish?', 'Add Fish', 'How Is My Data Clustered?'],
         icons=['house','folder2-open','cloud-sun','journal-plus','grid-1x2'],
         menu_icon='cast',
         default_index=0,
@@ -50,11 +53,11 @@ with sidebar:
 if selected == 'Home':
     st.write("""Remember how you wrote down all of those entries into your book? Well here they are! 
     If you want to see all of the fish you've caught by location or weather condition,
-    click on the **"I want to see all the fish I've caught"** checkbox. \n\n Alternatively, if you'd like to know where to fish based on tomorrow's 
-    weather conditions, then click the **"I don't know where to fish"** checkbox. \n\n Even cooler, as you catch fish, you can add them to this website and the data will be
-    reflective of your newly caught fish! Just click on the **"Add fish that I've caught"** checkbox to access this part. \n\n Now, this website wouldn't be complete without some
+    click on **"Show Me My Fish"**. \n\n Alternatively, if you'd like to know where to fish based on tomorrow's 
+    weather conditions, then click the **"Where Should I Fish?"**. \n\n Even cooler, as you catch fish, you can add them to this website and the data will be
+    reflective of your newly caught fish! Just click on **"Add Fish"** to access this part. \n\n Now, this website wouldn't be complete without some
     modeling... so if you'd like to see how your data is clustered (think "dividing the population or data points into a number of groups such that data points in the same groups are
-    more similar to other data points in the same group and dissimilar to the data points in other groups"), then click on the **"How does this data cluster?"** checkbox.""")
+    more similar to other data points in the same group and dissimilar to the data points in other groups"), then click on the **"How Does My Data Cluster?"**.""")
 if selected == 'Show Me My Fish':
     st.text("""
     This page shows you a history of all of the records from your notebook! Each record 
@@ -277,22 +280,79 @@ if selected == 'Add Fish':
         st.write('Record Submitted!')
     
     
-if selected == 'How Does My Data Cluster?':
-    st.write('Working on this section')
-
+if selected == 'How Is My Data Clustered?':
     
-# model = sidebar.button('Will I Catch a Fish?!?')
-
-
-# if model():
-
-#     st.text("""Clicking this button triggers a model to run, which calculates the 
-# probability of catching a fish based on the selections you have made. This model 
-# uses historic data to determine whether or not a fish is likely to be caught.
-
-# This is mostly for our nerdy selves to have some extra fun with this project!""")
-
+    num_clusters = st.slider('How Many Clusters?', 2, 5, 3, 1)
     
+    numeric_col1 = st.selectbox(
+        "Select Field 1 to Analyze",
+        numeric_cols,
+        index=numeric_cols.index('air_temp_f')
+    )
+    
+    numeric_col2 = st.selectbox(
+        "Select Field 2 to Analyze",
+        [i for i in numeric_cols if i != numeric_col1],
+        index=[i for i in numeric_cols if i != numeric_col1].index('fish_length_in')
+    )
+    
+    def run_kmeans(df, n_clusters=3):
+        kmeans = KMeans(n_clusters, random_state=0).fit(df[[numeric_col1, numeric_col2]])
+        
+        df['cluster'] = kmeans.labels_ + 1
+        
+        fig, ax = plt.subplots(figsize=(16, 9))
+
+        ax.grid(False)
+        ax.set_facecolor("#FFF")
+        ax.spines[["left", "bottom"]].set_visible(True)
+        ax.spines[["left", "bottom"]].set_color("#4a4a4a")
+        ax.tick_params(labelcolor="#4a4a4a")
+        ax.yaxis.label.set(color="#4a4a4a", fontsize=25)
+        ax.xaxis.label.set(color="#4a4a4a", fontsize=25)
+        # --------------------------------------------------
+
+        # Create scatterplot
+        ax = sns.scatterplot(
+            ax=ax,
+            x=df[numeric_col1],
+            y=df[numeric_col2],
+            hue=df['cluster'],
+            s=100,
+            palette=sns.color_palette("colorblind", n_colors=n_clusters),
+            legend=True
+        )
+        plt.legend(
+            title='Cluster',
+            loc='right',
+            bbox_to_anchor=(1.12, .9),
+            title_fontsize=19,
+            fontsize=15
+        )
+
+        # Annotate cluster centroids
+        for ix, [water_temp_f, month] in enumerate(kmeans.cluster_centers_):
+            ax.scatter(water_temp_f, month, s=200, c="#a8323e")
+            ax.annotate(
+                f"Cluster #{ix+1}",
+                (water_temp_f, month),
+                fontsize=25,
+                color="#a8323e",
+                xytext=(water_temp_f + 5, month + 3),
+                bbox=dict(boxstyle="square, pad=0.2", fc="white", ec="#a8323e", lw=1),
+                ha="center",
+                va="center",
+            )
+
+        return fig
+    
+    st.write(run_kmeans(df, n_clusters=num_clusters))
+    # st.dataframe(df)
+    
+    st.write('Averages by Cluster')
+    cluster_df = df.groupby('cluster').mean().T
+    st.dataframe(cluster_df)
+        
 # ----------------------------------------------------------------------------
 # Database 
 
