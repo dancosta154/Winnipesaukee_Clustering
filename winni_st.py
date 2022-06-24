@@ -8,7 +8,9 @@ from datetime import date
 import altair as alt
 import datetime
 from sklearn.cluster import KMeans
-
+# import csv
+# from io import StringIO
+# from google.cloud import storage
 
 html_temp = """
     <div style="background:#025246 ;padding:10px">
@@ -23,10 +25,25 @@ today
 url = 'https://github.com/dancosta154/Winnipesaukee_MultiRegression/blob/main/model_data/winni_reports.csv?raw=true'
 df = pd.read_csv(url,index_col=0)
 
+# storage_client = storage.Client()
+# bucket = storage_client.get_bucket(YOUR_BUCKET_NAME)
+
+# blob = bucket.blob(YOUR_FILE_NAME)
+# blob = blob.download_as_string()
+# blob = blob.decode('utf-8')
+
+# blob = StringIO(blob)  #tranform bytes to string here
+
+# names = csv.reader(blob)  #then use csv library to read the content
+# for name in names:
+#     print(f"First Name: {name[0]}")
+    
+# '--------------------------------'
+
 def make_unique_list(col):
     return col.unique()
 
-# # universal variables
+# universal variables
 location = make_unique_list(df['location'])
 weather = [str(x) for x in df['weather'].unique() if x != 'no_weather_recorded']
 wind_directions = make_unique_list(df['wind_dir'])
@@ -241,46 +258,40 @@ if selected == 'Where Should I Fish?':
     st.write(fish_caught.head(10))
     
 if selected == 'Add Fish':
-    day = st.date_input(
-     "What is the date you fished?",
-     datetime.date(2022, 6, 22))
     
-    location_selector = st.selectbox(
-        "Where did you fish?",
-        np.sort(location)
-    )
-    
-    fish_type = st.selectbox(
-     'What type of fish?',
-     ('Salmon', 'Rainbow', 'Lake Trout', 'Horned Pout', 'Smallmouth', 'No Fish Caught')
-    ) 
-    
-    fish_length = st.number_input('Length of Fish')
-    
-    weather_condition = st.selectbox(
-        "Select a Weather Condition",
-        weather
-    )
-    
-    temperature = st.number_input('Air Temp')
-    
-    water_temperature = st.number_input('Water Temp')
-    
-    wind_dir_selector = st.selectbox(
-        'Select a Wind Direction',
-        wind_directions
-    )
-    
-    wind_speed = st.number_input('Wind Speed')
+    def main():
+        st.write("This section allows for you to add the fish you have caught, one fish at a time. Adding records where no fish were caught is equally important to this dataset!")
+        
+        with st.form(key='myform', clear_on_submit=True):
+            day = st.date_input("What is the date you fished?",datetime.date(2022, 6, 22))
+            location_selector = st.selectbox("Where did you fish?", np.sort(location))
+            fish_type = st.selectbox('What type of fish?', ('Salmon', 'Rainbow', 'Lake Trout', 'Horned Pout', 'Smallmouth', 'No Fish Caught'))
+            fish_length = st.number_input('Length of Fish')
+            weather_condition = st.selectbox("Select a Weather Condition", weather)
+            temperature = st.number_input('Air Temp (F)')
+            water_temperature = st.number_input('Water Temp (F)')
+            wind_dir_selector = st.selectbox('Select a Wind Direction', wind_directions)
+            wind_speed = st.number_input('Wind Speed (MPH)')
+            submit_button = st.form_submit_button("Submit")
+  
+        if submit_button:
+            st.info('Record Submitted')
+            if fish_type == 'No Fish Caught':
+                result = f'''You unfortunately didn't catch a fish on {day} at {location_selector.title()}. Let's blame these **Weather conditions:** {weather_condition.title()}, {temperature}&deg;. {wind_dir_selector.upper()} winds blowing {wind_speed} mph.'''
+            else:
+                result = f'''You caught a {fish_length} inch {fish_type} on {day} at {location_selector.title()}.**Weather conditions:** {weather_condition.title()}, {temperature}&deg;. {wind_dir_selector.upper()} winds blowing {wind_speed} mph.'''
+            st.write(result)
+       
+    if __name__ == '__main__':
+        main()
 
-    st.write(f'''You caught a {fish_length} inch {fish_type} on {day} at {location_selector.title()}.
-       **Weather conditions:** {weather_condition.title()}, {temperature}&deg;. {wind_dir_selector.upper()} winds blowing {wind_speed} mph.''')
-    
-    if st.button('Submit Record'):
-        st.write('Record Submitted!')
-    
     
 if selected == 'How Is My Data Clustered?':
+    
+    cluster_type = st.selectbox(
+        "Select Which Model to Cluster",
+        ('KMeans', 'DBScan')
+    )
     
     num_clusters = st.slider('How Many Clusters?', 2, 5, 3, 1)
     
@@ -347,7 +358,6 @@ if selected == 'How Is My Data Clustered?':
         return fig
     
     st.write(run_kmeans(df, n_clusters=num_clusters))
-    # st.dataframe(df)
     
     st.write('Averages by Cluster')
     cluster_df = df.groupby('cluster').mean().T
@@ -356,7 +366,6 @@ if selected == 'How Is My Data Clustered?':
 # ----------------------------------------------------------------------------
 # Database 
 
-# import streamlit as st
 # import psycopg2
 
 # # Initialize connection.
