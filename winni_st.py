@@ -7,7 +7,8 @@ import seaborn as sns
 from datetime import date
 import altair as alt
 import datetime
-from sklearn.cluster import KMeans
+from sklearn.cluster import KMeans, DBSCAN
+from sklearn.preprocessing import StandardScaler
 # import csv
 # from io import StringIO
 # from google.cloud import storage
@@ -285,107 +286,141 @@ if selected == 'Add Fish':
     if __name__ == '__main__':
         main()
 
-    
+        
 if selected == 'How Is My Data Clustered?':
-    
+        
     cluster_type = st.selectbox(
         "Select Which Model to Cluster",
         ('KMeans', 'DBScan')
     )
     
-    num_clusters = st.slider('How Many Clusters?', 2, 5, 3, 1)
-    
     numeric_col1 = st.selectbox(
         "Select Field 1 to Analyze",
         numeric_cols,
-        index=numeric_cols.index('air_temp_f')
-    )
+        index=numeric_cols.index('water_temp_f')
+        )
     
     numeric_col2 = st.selectbox(
         "Select Field 2 to Analyze",
         [i for i in numeric_cols if i != numeric_col1],
         index=[i for i in numeric_cols if i != numeric_col1].index('fish_length_in')
-    )
+        )
     
-    def run_kmeans(df, n_clusters=3):
-        kmeans = KMeans(n_clusters, random_state=0).fit(df[[numeric_col1, numeric_col2]])
+    # Model Prep
+    df_dummies = pd.get_dummies(df, columns = ['wind_dir', 'weather', 'general_loc', 'fish_type'], drop_first = True)
+
+    # Define X
+    X = df_dummies.drop(columns = ['date','fish_length_in', 'time_caught', 'lines_in', 'lines_out', 'location', 'time_caught_bucket'])
+
+    # Standard Scalar
+    sc = StandardScaler()
+    X_scaled = sc.fit_transform(X)
+            
+    if cluster_type == 'KMeans':
         
-        df['cluster'] = kmeans.labels_ + 1
+        num_clusters = st.slider('How Many Clusters?', 2, 5, 3, 1)
         
-        fig, ax = plt.subplots(figsize=(16, 9))
+        def run_kmeans(df, n_clusters=3):
+            kmeans = KMeans(n_clusters, random_state=0).fit(df[[numeric_col1, numeric_col2]])
 
-        ax.grid(False)
-        ax.set_facecolor("#FFF")
-        ax.spines[["left", "bottom"]].set_visible(True)
-        ax.spines[["left", "bottom"]].set_color("#4a4a4a")
-        ax.tick_params(labelcolor="#4a4a4a")
-        ax.yaxis.label.set(color="#4a4a4a", fontsize=25)
-        ax.xaxis.label.set(color="#4a4a4a", fontsize=25)
-        # --------------------------------------------------
+            df['cluster'] = kmeans.labels_ + 1
 
-        # Create scatterplot
-        ax = sns.scatterplot(
-            ax=ax,
-            x=df[numeric_col1],
-            y=df[numeric_col2],
-            hue=df['cluster'],
-            s=100,
-            palette=sns.color_palette("colorblind", n_colors=n_clusters),
-            legend=True
-        )
-        plt.legend(
-            title='Cluster',
-            loc='right',
-            bbox_to_anchor=(1.12, .9),
-            title_fontsize=19,
-            fontsize=15
-        )
+            fig, ax = plt.subplots(figsize=(16, 9))
 
-        # Annotate cluster centroids
-        for ix, [water_temp_f, month] in enumerate(kmeans.cluster_centers_):
-            ax.scatter(water_temp_f, month, s=200, c="#a8323e")
-            ax.annotate(
-                f"Cluster #{ix+1}",
-                (water_temp_f, month),
-                fontsize=25,
-                color="#a8323e",
-                xytext=(water_temp_f + 5, month + 3),
-                bbox=dict(boxstyle="square, pad=0.2", fc="white", ec="#a8323e", lw=1),
-                ha="center",
-                va="center",
+            ax.grid(False)
+            ax.set_facecolor("#FFF")
+            ax.spines[["left", "bottom"]].set_visible(True)
+            ax.spines[["left", "bottom"]].set_color("#4a4a4a")
+            ax.tick_params(labelcolor="#4a4a4a")
+            ax.yaxis.label.set(color="#4a4a4a", fontsize=25)
+            ax.xaxis.label.set(color="#4a4a4a", fontsize=25)
+            # --------------------------------------------------
+
+            # Create scatterplot
+            ax = sns.scatterplot(
+                ax=ax,
+                x=df[numeric_col1],
+                y=df[numeric_col2],
+                hue=df['cluster'],
+                s=100,
+                palette=sns.color_palette("colorblind", n_colors=n_clusters),
+                legend=True
+            )
+            plt.legend(
+                title='Cluster',
+                loc='right',
+                bbox_to_anchor=(1.12, .9),
+                title_fontsize=19,
+                fontsize=15
             )
 
-        return fig
-    
-    st.write(run_kmeans(df, n_clusters=num_clusters))
-    
-    st.write('Averages by Cluster')
-    cluster_df = df.groupby('cluster').mean().T
-    st.dataframe(cluster_df)
+            # Annotate cluster centroids
+            for ix, [water_temp_f, month] in enumerate(kmeans.cluster_centers_):
+                ax.scatter(water_temp_f, month, s=200, c="#a8323e")
+                ax.annotate(
+                    f"Cluster #{ix+1}",
+                    (water_temp_f, month),
+                    fontsize=25,
+                    color="#a8323e",
+                    xytext=(water_temp_f + 5, month + 3),
+                    bbox=dict(boxstyle="square, pad=0.2", fc="white", ec="#a8323e", lw=1),
+                    ha="center",
+                    va="center",
+                )
+
+            return fig
+
+        st.write(run_kmeans(df, n_clusters=num_clusters))
+
+        st.write('Averages by KMeans Cluster')
+        cluster_df = df.groupby('cluster').mean().T
+        st.dataframe(cluster_df)
+
+    elif cluster_type == 'DBScan':
         
-# ----------------------------------------------------------------------------
-# Database 
+        eps_select = st.slider('What value of Epsilon do you want to use?', .2, 2.0, .6, .2)
+        min_samples_select = st.slider('How many Samples do you want to use?', 5, 8, 5, 1)
+        
+        def run_dbscan(df):
+            dbscan = DBSCAN(eps = eps_select, min_samples=min_samples_select).fit(X_scaled)
 
-# import psycopg2
+            df['cluster'] = dbscan.labels_ + 2
+                      
+            n_clusters = df['cluster'].nunique()
 
-# # Initialize connection.
-# # Uses st.experimental_singleton to only run once.
-# @st.experimental_singleton
-# def init_connection():
-#     return psycopg2.connect(**st.secrets["postgres"])
+            fig, ax = plt.subplots(figsize=(16, 9))
 
-# conn = init_connection()
+            ax.grid(False)
+            ax.set_facecolor("#FFF")
+            ax.spines[["left", "bottom"]].set_visible(True)
+            ax.spines[["left", "bottom"]].set_color("#4a4a4a")
+            ax.tick_params(labelcolor="#4a4a4a")
+            ax.yaxis.label.set(color="#4a4a4a", fontsize=25)
+            ax.xaxis.label.set(color="#4a4a4a", fontsize=25)
+            # --------------------------------------------------
 
-# # Perform query.
-# # Uses st.experimental_memo to only rerun when the query changes or after 10 min.
-# @st.experimental_memo(ttl=600)
-# def run_query(query):
-#     with conn.cursor() as cur:
-#         cur.execute(query)
-#         return cur.fetchall()
+            # Create scatterplot
+            ax = sns.scatterplot(
+                ax=ax,
+                x=df[numeric_col1],
+                y=df[numeric_col2],
+                hue=df['cluster'],
+                s=100,
+                palette=sns.color_palette("colorblind", n_colors=n_clusters),
+                legend=True
+            )
+            plt.legend(
+                title='Cluster',
+                loc='right',
+                bbox_to_anchor=(1.12, .9),
+                title_fontsize=19,
+                fontsize=15
+            )
 
-# rows = run_query("SELECT * from mytable;")
+            return fig
 
-# # Print results.
-# for row in rows:
-#     st.write(f"{row[0]} has a :{row[1]}:")
+        st.write(run_dbscan(df))
+
+        st.write('Averages by DBSCAN Cluster')
+        cluster_df = df.groupby('cluster').mean().T
+        st.dataframe(cluster_df)
