@@ -11,6 +11,7 @@ from sklearn.cluster import KMeans, DBSCAN
 from sklearn.preprocessing import StandardScaler
 import csv
 from io import StringIO
+import io 
 from google.cloud import storage
 from google.oauth2 import service_account
 import tableauserverclient as TSC
@@ -47,10 +48,8 @@ file_path = "winni_reports.csv"
 
 content = read_file(bucket_name, file_path)
 
-import io 
-
 result_df = io.StringIO(content)
-df = pd.read_csv(result_df, sep = ',', index_col = 0)
+df = pd.read_csv(result_df, index_col = 0)
 
 # '--------------------------------'
 
@@ -275,55 +274,44 @@ if selected == 'Add Fish':
     
     def main():
         st.write("This section allows for you to add the fish you have caught, one fish at a time. Adding records where no fish were caught is equally important to this dataset!")
-              
-        with st.form(key='add_record_form',clear_on_submit= True):
-            st.subheader("Add Record")
-            # original way - This is the current winner
-            record = [f'{st.text_input(col)}' for col in df.columns]
+
+        with st.form(key='myform', clear_on_submit=True):
+            day = st.date_input("What is the date you fished?",datetime.date(2022, 6, 22))
+            location_selector = st.selectbox("Where did you fish?", np.sort(location))
+            fish_type = st.selectbox('What type of fish?', ('Salmon', 'Rainbow', 'Lake Trout', 'Horned Pout', 'Smallmouth', 'No Fish Caught'))
+            fish_length = st.number_input('Length of Fish')
+            water_depth = st.number_input('Depth at which you caught the fish')
+            time_caught = st.time_input('What time did you catch the fish?', datetime.time(8, 45))
+            weather_condition = st.selectbox("Select a Weather Condition", weather)
+            temperature = st.number_input('Air Temp (F)')
+            water_temperature = st.number_input('Water Temp (F)')
+            wind_dir_selector = st.selectbox('Select a Wind Direction', wind_directions)
+            wind_speed = st.number_input('Wind Speed (MPH)')
             
-            # messy way - not recommended
-            # record = [f'{df[col].dtype, st.number_input(col)}' if df[col].dtype == 'int' else {st.text_input(col)} if df[col].dtype == 'float' else {st.text_input(col)} for col in df.columns]
+            record = [day, location_selector, fish_type, fish_length, water_depth, time_caught, weather_condition, temperature, water_temperature, wind_dir_selector, wind_speed,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0]
             
-            # This was an attempt at having different entry types per dtype; not really working
-            # record_items = []
-            # for col in df.columns:
-            #     if df[col].dtype == 'int' or df[col].dtype == 'float':
-            #         record_items.append(st.number_input(col))
-            #     elif df[col].dtype == 'object':
-            #         record_items.append(st.text_input(col))
-            #     elif df[col].dtype == 'datetime64':
-            #         record_items.append(st.date_input(col))
-            #     elif df[col].dtype == 'bool':
-            #         record_items.append(st.text_input(col))
             if st.form_submit_button("Add Record"):
                 df.loc[len(df.index)] = record
-            st.write(df)
+                
+            df.to_csv('updated_df.csv')
+            
+            with open('updated_df.csv') as f:
+                s = f.read() + '\n' # add trailing new line character
+               
+            # client = storage.Client(credentials=credentials)
+            # bucket = client.get_bucket(bucket_name)
+            # blob = bucket.blob(file_path)
+            # blob.upload_from_string(s)
 
-#         with st.form(key='myform', clear_on_submit=True):
-#             day = st.date_input("What is the date you fished?",datetime.date(2022, 6, 22))
-#             location_selector = st.selectbox("Where did you fish?", np.sort(location))
-#             fish_type = st.selectbox('What type of fish?', ('Salmon', 'Rainbow', 'Lake Trout', 'Horned Pout', 'Smallmouth', 'No Fish Caught'))
-#             fish_length = st.number_input('Length of Fish')
-#             water_depth = st.number_input('Depth at which you caught the fish')
-#             time_caught = st.time_input('What time did you catch the fish?', datetime.time(8, 45))
-#             weather_condition = st.selectbox("Select a Weather Condition", weather)
-#             temperature = st.number_input('Air Temp (F)')
-#             water_temperature = st.number_input('Water Temp (F)')
-#             wind_dir_selector = st.selectbox('Select a Wind Direction', wind_directions)
-#             wind_speed = st.number_input('Wind Speed (MPH)')
-#             submit_button = st.form_submit_button("Submit")
-  
-#         if submit_button:
-#             # add record to df
-#             # df.loc[len(df.index)] = [2022, day, temperature, water_temperature, wind_speed, 
-#                              # wind_dir_selector, weather_condition, location_selector, 
-#                              # time_caught, fish_type, fish_length, water_depth, False, '7:10', '9:00', 'diamond', 110.000, 8, 8, '[7, 9)'] 
-#             st.info('Record Submitted')
+            st.write(df)               
+    
+            
+
 #             if fish_type == 'No Fish Caught':
 #                 result = f'''You unfortunately didn't catch a fish on {day} at {location_selector.title()}. Let's blame these **Weather conditions:** {weather_condition.title()}, {temperature}&deg;. {wind_dir_selector.upper()} winds blowing {wind_speed} mph.'''
 #             else:
 #                 result = f'''You caught a {fish_length} inch {fish_type} on {day} at {location_selector.title()}.**Weather conditions:** {weather_condition.title()}, {temperature}&deg;. {wind_dir_selector.upper()} winds blowing {wind_speed} mph.'''
-#             st.write(result)
+# st.form_submit_button("Add Record"):            st.write(result)
        
     if __name__ == '__main__':
         main()
