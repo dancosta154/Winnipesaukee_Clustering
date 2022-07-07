@@ -15,6 +15,7 @@ import io
 from google.cloud import storage
 from google.oauth2 import service_account
 import tableauserverclient as TSC
+import streamlit.components.v1 as components
 
 html_temp = """
     <div style="background:#025246 ;padding:10px">
@@ -23,7 +24,7 @@ html_temp = """
     """
 st.markdown(html_temp, unsafe_allow_html = True)
 
-today = date.today()
+today = datetime.date.today()
 today
 
 # '--------------------------------'
@@ -35,8 +36,8 @@ credentials = service_account.Credentials.from_service_account_info(
 client = storage.Client(credentials=credentials)
 
 # Retrieve file contents.
-# Uses st.experimental_memo to only rerun when the query changes or after 10 min.
-@st.experimental_memo(ttl=600)
+# Uses st.experimental_memo to only rerun when the query changes or after 1 second
+@st.experimental_memo(ttl=1)
 
 def read_file(bucket_name, file_path):
     bucket = client.bucket(bucket_name)
@@ -68,9 +69,9 @@ sidebar = st.sidebar
 with sidebar:
     selected = option_menu(
         menu_title = 'Navigation',
-        options=['Home', 'Show Me My Fish', 'Where Should I Fish?', 'Add Fish', 'How Is My Data Clustered?'],
-        icons=['house','folder2-open','cloud-sun','journal-plus','grid-1x2'],
-        menu_icon='cast',
+        options=['Home', 'Show Me My Fish', 'Where Should I Fish?', 'Add Fish', 'How Is My Data Clustered?', 'Additional Graphics'],
+        icons=['house','folder2-open','cloud-sun','journal-plus','grid-1x2', 'file-bar-graph'], # https://icons.getbootstrap.com/
+        menu_icon='cast', 
         default_index=0,
         styles={
         "container": {"padding": "0"},
@@ -276,19 +277,41 @@ if selected == 'Add Fish':
         st.write("This section allows for you to add the fish you have caught, one fish at a time. Adding records where no fish were caught is equally important to this dataset!")
 
         with st.form(key='myform', clear_on_submit=True):
-            day = st.date_input("What is the date you fished?",datetime.date(2022, 6, 22))
-            location_selector = st.selectbox("Where did you fish?", np.sort(location))
-            fish_type = st.selectbox('What type of fish?', ('Salmon', 'Rainbow', 'Lake Trout', 'Horned Pout', 'Smallmouth', 'No Fish Caught'))
+            date = st.date_input('What is the Date You Fished?', today)
+            location_selector = st.selectbox("Where Did You Fish?", np.sort(location))
+            fish_type = st.selectbox('What Type of Fish Did You Catch?', ('Salmon', 'Rainbow', 'Lake Trout', 'Horned Pout', 'Smallmouth', 'No Fish Caught'))
             fish_length = st.number_input('Length of Fish')
-            water_depth = st.number_input('Depth at which you caught the fish')
-            time_caught = st.time_input('What time did you catch the fish?', datetime.time(8, 45))
+            water_depth = st.number_input('Depth at Which You Caught the Fish')
+            time_caught = st.time_input('What Time Did You Catch the Fish?', datetime.time(7, 30))
             weather_condition = st.selectbox("Select a Weather Condition", weather)
-            temperature = st.number_input('Air Temp (F)')
-            water_temperature = st.number_input('Water Temp (F)')
+            temperature = st.number_input('Air Temperature (F)')
+            water_temperature = st.number_input('Water Temperature (F)')
             wind_dir_selector = st.selectbox('Select a Wind Direction', wind_directions)
             wind_speed = st.number_input('Wind Speed (MPH)')
+            lines_in = st.time_input('What Time Did You Start Fishing?', datetime.time(7, 00))
+            lines_out = st.time_input('What Time Did You Stop Fishing?', datetime.time(11, 45))
             
-            record = [day, location_selector, fish_type, fish_length, water_depth, time_caught, weather_condition, temperature, water_temperature, wind_dir_selector, wind_speed,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0]
+            record = [
+                str(date)[:4], # year
+                date, 
+                temperature,
+                water_temperature,
+                wind_speed,
+                wind_dir_selector,
+                weather_condition,
+                location_selector, 
+                time_caught,
+                fish_type, 
+                fish_length, 
+                water_depth, 
+                np.where(fish_type == "No Fish Caught", 'Yes', 'No'), # skunked
+                lines_in,
+                lines_out,
+                ''.join([i for i in location_selector.split() if i not in ['east', 'west', 'north', 'south', 'of']]), # general_loc
+                (pd.to_datetime(lines_out, format='%H:%M:%S') - pd.to_datetime(lines_in, format='%H:%M:%S')).total_seconds() / 60, # duration_min
+                date.month, # month
+                time_caught.hour # hour
+            ]
             
             if st.form_submit_button("Add Record"):
                 df.loc[len(df.index)] = record
@@ -298,20 +321,12 @@ if selected == 'Add Fish':
             with open('updated_df.csv') as f:
                 s = f.read() + '\n' # add trailing new line character
                
-            # client = storage.Client(credentials=credentials)
-            # bucket = client.get_bucket(bucket_name)
-            # blob = bucket.blob(file_path)
-            # blob.upload_from_string(s)
+            client = storage.Client(credentials=credentials)
+            bucket = client.get_bucket(bucket_name)
+            blob = bucket.blob(file_path)
+            blob.upload_from_string(s)
 
             st.write(df)               
-    
-            
-
-#             if fish_type == 'No Fish Caught':
-#                 result = f'''You unfortunately didn't catch a fish on {day} at {location_selector.title()}. Let's blame these **Weather conditions:** {weather_condition.title()}, {temperature}&deg;. {wind_dir_selector.upper()} winds blowing {wind_speed} mph.'''
-#             else:
-#                 result = f'''You caught a {fish_length} inch {fish_type} on {day} at {location_selector.title()}.**Weather conditions:** {weather_condition.title()}, {temperature}&deg;. {wind_dir_selector.upper()} winds blowing {wind_speed} mph.'''
-# st.form_submit_button("Add Record"):            st.write(result)
        
     if __name__ == '__main__':
         main()
@@ -340,7 +355,7 @@ if selected == 'How Is My Data Clustered?':
     df_dummies = pd.get_dummies(df, columns = ['wind_dir', 'weather', 'general_loc', 'fish_type'], drop_first = True)
 
     # Define X
-    X = df_dummies.drop(columns = ['date','fish_length_in', 'time_caught', 'lines_in', 'lines_out', 'location', 'time_caught_bucket'])
+    X = df_dummies.drop(columns = ['date','fish_length_in', 'time_caught', 'lines_in', 'lines_out', 'location'])
 
     # Standard Scalar
     sc = StandardScaler()
@@ -454,3 +469,15 @@ if selected == 'How Is My Data Clustered?':
         st.write('Averages by DBSCAN Cluster')
         cluster_df = df.groupby('cluster').mean().T
         st.dataframe(cluster_df)
+        
+if selected == 'Additional Graphics':
+    
+        st.write('Each fish represents a location.  Hover the mouse over a fish for more info!')
+        
+        def main():
+            html_temp = "<div class='tableauPlaceholder' id='viz1656796414285' style='position: relative'><noscript><a href='#'><img alt='Fish Length vs Water Depth, by Location ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Wi&#47;WinniLake&#47;Sheet1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='WinniLake&#47;Sheet1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Wi&#47;WinniLake&#47;Sheet1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1656796414285');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>"
+
+            components.html(html_temp, height = 800, width = 800)
+
+        if __name__ == "__main__":    
+            main()
