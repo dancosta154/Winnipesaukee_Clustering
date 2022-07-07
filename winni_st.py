@@ -314,7 +314,7 @@ if selected == 'Add Fish':
                 weather_condition,
                 location_selector, 
                 time_caught,
-                fish_type, 
+                np.where(fish_type == 'No Fish Caught', 'no_fish_caught', fish_type.lower()), # fish_type 
                 fish_length, 
                 water_depth, 
                 np.where(fish_type == "No Fish Caught", True, False), # skunked
