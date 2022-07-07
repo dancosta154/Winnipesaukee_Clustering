@@ -317,7 +317,7 @@ if selected == 'Add Fish':
                 fish_type, 
                 fish_length, 
                 water_depth, 
-                np.where(fish_type == "No Fish Caught", 'Yes', 'No'), # skunked
+                np.where(fish_type == "No Fish Caught", True, False), # skunked
                 lines_in,
                 lines_out,
                 ''.join([i for i in location_selector.split() if i not in ['east', 'west', 'north', 'south', 'of']]), # general_loc
