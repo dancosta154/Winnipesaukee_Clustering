@@ -355,7 +355,8 @@ if selected == 'How Is My Data Clustered?':
     df_dummies = pd.get_dummies(df, columns = ['wind_dir', 'weather', 'general_loc', 'fish_type'], drop_first = True)
 
     # Define X
-    X = df_dummies.drop(columns = ['date','fish_length_in', 'time_caught', 'lines_in', 'lines_out', 'location'])
+    X = df_dummies.drop(columns = ['date','fish_length_in', 'time_caught', 'lines_in', 'lines_out', 'location', 'skunked'])
+    st.write(X)
 
     # Standard Scalar
     sc = StandardScaler()
