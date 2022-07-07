@@ -22,7 +22,7 @@ Displays all records from the dataframe, or the user can filter records based on
 Takes the data from user inputs and based on these conditions, tells the user which location they should fish at.  The user can see the number of times a selected location was fished, and how many times they got "skunked" (caught no fish).
 
 * `Add Fish`
-This project started by manually inputting historic data.  To make the app more useful and robust over time, we store data on the Google Cloud Platform (GCP) to facilitate communication between the app and the cloud.  In doing so, users are able to both extract the data and add new records.  
+This project started by manually inputting historic data.  To make the app more useful and robust over time, we store data on the Google Cloud Platform (GCP) to facilitate communication between the app and the cloud.  In doing so, authenticated users are able to both extract the data and add new records. Please note, if you receive an error, it is due to the lack of authentication. 
 
 * `How Does My Data Cluster?`
 This sections provides two different unsupervised machine learning options to the user.  They can use KMeans or DBScan clustering models which will divide the records into a number of groups, or 'clusters', such that the data points within each cluster are similar, and dissimilar from the data points in the other clusters.  Lastly, the user has the ability to further analyze these clusters by producing a scatter plot, selecting what will be on the X and Y axis' from a drop-down menu of available features.  
